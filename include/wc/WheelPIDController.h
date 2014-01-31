@@ -30,7 +30,7 @@ WC_EXPORT double wcWheelPIDController_getDerivativeGain( const wcWheelPIDControl
 WC_EXPORT double wcWheelPIDController_getWindupGuard( const wcWheelPIDController * controller );
 
 WC_EXPORT double wcWheelPIDController_update( wcWheelPIDController * controller, double currentError, double delta );
-WC_EXPORT double wcWheelPIDController_updateAngular( wcWheelPIDController * controller, int targetAngleIncrements, int actualAngleIncrements, int incrementsPerTurn, double delta );
+WC_EXPORT double wcWheelPIDController_updateAngular( wcWheelPIDController * controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta );
 
 #ifdef __cplusplus
 }

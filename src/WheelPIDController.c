@@ -139,7 +139,7 @@ double wcWheelPIDController_update( wcWheelPIDController * controller, double cu
 }
 
 
-double wcWheelPIDController_updateAngular( wcWheelPIDController * controller, int targetAngleIncrements, int actualAngleIncrements, int incrementsPerTurn, double delta )
+double wcWheelPIDController_updateAngular( wcWheelPIDController * controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta )
 {
 	// the shortest distance between both angles
 	int currentError = targetAngleIncrements - actualAngleIncrements;
