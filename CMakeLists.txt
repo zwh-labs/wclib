@@ -54,3 +54,17 @@ if( BUILD_EXAMPLES )
 else()
 	message( STATUS "NOT building native C examples" )
 endif()
+
+find_package( Doxygen )
+if( DOXYGEN_FOUND )
+	if( NOT TARGET doc )
+		add_custom_target( doc )
+	endif()
+	add_custom_target( doc_wclib ${DOXYGEN_EXECUTABLE} Doxyfile
+		WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+	)
+	add_dependencies( doc doc_wclib )
+	set_directory_properties( PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${CMAKE_CURRENT_SOURCE_DIR}/doc/html;${CMAKE_CURRENT_SOURCE_DIR}/doc/latex;" )
+else( DOXYGEN_FOUND )
+	message( STATUS "Doxygen not found - Documentation can't be generated." )
+endif( DOXYGEN_FOUND )
