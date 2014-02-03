@@ -1,5 +1,5 @@
-<map id="include/wc/WheelMovement.h" name="include/wc/WheelMovement.h">
-<area shape="rect" id="node2" href="$_thread_8h.html" title="include/wc/Thread.h" alt="" coords="5,88,152,115"/>
-<area shape="rect" id="node3" href="$_wheel_movement___configuration_8h.html" title="include/wc/WheelMovement\l_Configuration.h" alt="" coords="177,81,375,122"/>
-<area shape="rect" id="node4" href="$_wheel_movement___packet_8h.html" title="include/wc/WheelMovement\l_Packet.h" alt="" coords="399,81,596,122"/>
+<map id="wc/WheelMovement.h" name="wc/WheelMovement.h">
+<area shape="rect" id="node2" href="$_thread_8h.html" title="wc/Thread.h" alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$_wheel_movement___configuration_8h.html" title="wc/WheelMovement_Configuration.h" alt="" coords="129,80,380,107"/>
+<area shape="rect" id="node4" href="$_wheel_movement___packet_8h.html" title="wc/WheelMovement_Packet.h" alt="" coords="405,80,615,107"/>
 </map>

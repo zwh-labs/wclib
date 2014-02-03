@@ -1,6 +1,6 @@
-<map id="include/wc/Error.h" name="include/wc/Error.h">
-<area shape="rect" id="node2" href="$_wheel_movement_8h.html" title="include/wc/WheelMovement.h" alt="" coords="172,80,380,107"/>
-<area shape="rect" id="node3" href="$_thread_8h.html" title="include/wc/Thread.h" alt="" coords="5,163,152,189"/>
-<area shape="rect" id="node4" href="$_wheel_movement___configuration_8h.html" title="include/wc/WheelMovement\l_Configuration.h" alt="" coords="177,155,375,197"/>
-<area shape="rect" id="node5" href="$_wheel_movement___packet_8h.html" title="include/wc/WheelMovement\l_Packet.h" alt="" coords="399,155,596,197"/>
+<map id="wc/Error.h" name="wc/Error.h">
+<area shape="rect" id="node2" href="$_wheel_movement_8h.html" title="wc/WheelMovement.h" alt="" coords="175,80,333,107"/>
+<area shape="rect" id="node3" href="$_thread_8h.html" title="wc/Thread.h" alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$_wheel_movement___configuration_8h.html" title="wc/WheelMovement_Configuration.h" alt="" coords="129,155,380,181"/>
+<area shape="rect" id="node5" href="$_wheel_movement___packet_8h.html" title="wc/WheelMovement_Packet.h" alt="" coords="405,155,615,181"/>
 </map>

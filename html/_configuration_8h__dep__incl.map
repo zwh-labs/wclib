@@ -1,7 +1,7 @@
-<map id="include/wc/Configuration.h" name="include/wc/Configuration.h">
-<area shape="rect" id="node2" href="$_configuration___argument_parser_8h.html" title="include/wc/Configuration\l_ArgumentParser.h" alt="" coords="5,81,179,122"/>
-<area shape="rect" id="node3" href="$_configuration__stdio_8h.html" title="include/wc/Configuration\l_stdio.h" alt="" coords="203,81,377,122"/>
-<area shape="rect" id="node4" href="$_connection___configuration_8h.html" title="include/wc/Connection\l_Configuration.h" alt="" coords="403,81,565,122"/>
-<area shape="rect" id="node5" href="$_wheel_movement___configuration_8h.html" title="include/wc/WheelMovement\l_Configuration.h" alt="" coords="589,81,787,122"/>
-<area shape="rect" id="node6" href="$_wheel_p_i_d_controller_8h.html" title="include/wc/WheelPIDController.h" alt="" coords="811,88,1037,115"/>
+<map id="wc/Configuration.h" name="wc/Configuration.h">
+<area shape="rect" id="node2" href="$_configuration___argument_parser_8h.html" title="wc/Configuration_Argument\lParser.h" alt="" coords="5,81,200,122"/>
+<area shape="rect" id="node3" href="$_configuration__stdio_8h.html" title="wc/Configuration_stdio.h" alt="" coords="224,88,400,115"/>
+<area shape="rect" id="node4" href="$_connection___configuration_8h.html" title="wc/Connection_Configuration.h" alt="" coords="424,88,643,115"/>
+<area shape="rect" id="node5" href="$_wheel_movement___configuration_8h.html" title="wc/WheelMovement_Configuration.h" alt="" coords="667,88,919,115"/>
+<area shape="rect" id="node6" href="$_wheel_p_i_d_controller_8h.html" title="wc/WheelPIDController.h" alt="" coords="944,88,1123,115"/>
 </map>
