@@ -64,7 +64,7 @@ bool init_sdl()
 	}
 
 	glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
-
+	glEnable(GL_DEPTH_TEST);
 	glMatrixMode( GL_PROJECTION );
 	glLoadIdentity();
 	glMatrixMode( GL_MODELVIEW );
@@ -148,7 +148,7 @@ void update()
 	double delta = (double)(currentTime - lastTime) / 1000.0;
 	lastTime = currentTime;
 
-	glClear( GL_COLOR_BUFFER_BIT );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	for( int i=0; i<WHEELNUM; i++ )
 	{
@@ -165,13 +165,13 @@ void update()
 		wheelRotations[i] = fraction(wheelRotations[i]);
 		glPushMatrix();
 			unsigned char color = i+1;
-			glColor3f( color&1, color&2, color&4 );
+			glColor3f( color&2, color&1, color&4 );
 			glRotatef( wheelRotations[i] * 360.0f, 0,0,1 );
 			glBegin( GL_QUADS );
-				glVertex2f( -0.5f, -0.5f );
-				glVertex2f( 0.5f, -0.5f );
-				glVertex2f( 0.5f, 0.5f );
-				glVertex2f( -0.5f, 0.5f );
+				glVertex3f( -0.5f, -0.5f, i*0.5f );
+				glVertex3f( 0.5f, -0.5f, i*0.5f );
+				glVertex3f( 0.5f, 0.5f, i*0.5f );
+				glVertex3f( -0.5f, 0.5f, i*0.5f );
 			glEnd();
 		glPopMatrix();
 	}

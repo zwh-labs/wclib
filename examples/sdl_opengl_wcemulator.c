@@ -70,6 +70,7 @@ bool init_sdl()
 	}
 
 	glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
+	glEnable( GL_DEPTH_TEST );
 
 	glMatrixMode( GL_PROJECTION );
 	glLoadIdentity();
@@ -159,7 +160,7 @@ static inline int modulo( int a, int b )
 
 void update()
 {
-	glClear( GL_COLOR_BUFFER_BIT );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	emulatedWheelMovement_update();
 
@@ -171,13 +172,13 @@ void update()
 		wheelRotationIncrements[i] = modulo( wheelRotationIncrements[i], wcConfiguration_getWheelIncrementsPerTurn( configuration, i ) );
 		glPushMatrix();
 			unsigned char color = i+1;
-			glColor3f( color&1, color&2, color&4 );
+			glColor3f( color&2, color&1, color&4 );
 			glRotatef( ( (double)wheelRotationIncrements[i] / (double)wcConfiguration_getWheelIncrementsPerTurn( configuration, i ) ) * 360.0f, 0,0,1 );
 			glBegin( GL_QUADS );
-				glVertex2f( -0.5f, -0.5f );
-				glVertex2f( 0.5f, -0.5f );
-				glVertex2f( 0.5f, 0.5f );
-				glVertex2f( -0.5f, 0.5f );
+				glVertex3f( -0.5f, -0.5f, i*0.1f );
+				glVertex3f( 0.5f, -0.5f, i*0.1f );
+				glVertex3f( 0.5f, 0.5f, i*0.1f );
+				glVertex3f( -0.5f, 0.5f, i*0.1f );
 			glEnd();
 		glPopMatrix();
 	}
