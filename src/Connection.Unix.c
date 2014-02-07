@@ -86,8 +86,8 @@ int wcConnection_read( wcConnection * connection, wcPacket * packet )
 	ret = readBytes( connection->fd, packet->_data, packet->header.length );
 	if( ret < 0 )
 		return ret; // return error
-	else
-		return ret + sizeof(wcPacket_Header); // return size read + size read for header
+
+	return ret + sizeof(wcPacket_Header); // return size read + size of header
 }
 
 

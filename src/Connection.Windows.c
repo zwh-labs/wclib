@@ -73,6 +73,7 @@ bool wcConnection_close( wcConnection * connection )
 
 int wcConnection_read( wcConnection * connection, wcPacket * packet )
 {
+	// header
 	DWORD read = 0;
 	BOOL ret = ReadFile( connection->handle, &(packet->header), sizeof(wcPacket_Header), &read, NULL);
 	if( !ret )
@@ -80,12 +81,13 @@ int wcConnection_read( wcConnection * connection, wcPacket * packet )
 	if( read != sizeof(wcPacket_Header) )
 		return read;
 
+	// remaining packet
 	read = 0;
 	ret = ReadFile( connection->handle, packet->_data, packet->header.length, &read, NULL);
 	if( !ret )
 		return -1;
-	else
-		return read + sizeof(wcPacket_Header);
+
+	return read + sizeof(wcPacket_Header); // return size read + size of header
 }
 
 

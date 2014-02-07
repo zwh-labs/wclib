@@ -1,3 +1,5 @@
+#define _POSIX_SOURCE
+
 #include <wc/Configuration.h>
 #include <wc/Configuration_stdio.h>
 #include <wc/Configuration_ArgumentParser.h>
@@ -6,17 +8,50 @@
 #include <wc/Thread.h>
 #include <wc/WheelMovement.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
+
+
+static volatile bool quit = false;
 
 
 #ifdef _WIN32
 	#include <windows.h>
-	void sleep( int sec )
+	static void sleep( int sec )
 	{
 		Sleep( sec * 1000 );
 	}
+	static BOOL quitHandler( DWORD fdwCtrlType )
+	{
+		if( fdwCtrlType == CTRL_C_EVENT )
+		{
+			quit = true;
+			return TRUE;
+		}
+		return FALSE;
+	}
+	static void setupQuitOnSIGINT()
+	{
+		SetConsoleCtrlHandler( (PHANDLER_ROUTINE) quitHandler, TRUE );
+	}
 #else
 	#include <unistd.h>
+	#include <signal.h>
+	static void quitHandler( int s )
+	{
+		(void) s;
+		quit = true;
+	}
+	static void setupQuitOnSIGINT()
+	{
+		struct sigaction sigIntHandler;
+
+		sigIntHandler.sa_handler = quitHandler;
+		sigemptyset(&sigIntHandler.sa_mask);
+		sigIntHandler.sa_flags = 0;
+
+		sigaction(SIGINT, &sigIntHandler, NULL);
+	}
 #endif
 
 
@@ -41,17 +76,16 @@ int main( int argc, const char ** argv )
 		goto thread_failed;
 	fprintf( stderr, "done\n" );
 
-	fprintf( stderr, "Running for 10 seconds\n" );
-	int cnt = 0;
-	while( cnt < 10 )
+	setupQuitOnSIGINT();
+	fprintf( stderr, "Polling thread each second - Press Ctrl-C to shutdown\n" );
+	while( !quit )
 	{
-		sleep( 1 );
 		for( unsigned int i = 0; i<wcThread_getWheelCount( thread ); i++ )
 		{
 			wcWheelMovement wm = wcThread_retrieveWheelMovement( thread, i );
 			printf( "Wheel:\tchannel=%d\terror=%d\tvalue=%d\n", i, wcWheelMovement_getError( &wm ), wcWheelMovement_getIncrements( &wm ) );
 		}
-		cnt++;
+		sleep( 1 );
 	}
 
 	fprintf( stderr, "Stopping thread ... " ); fflush( stderr );

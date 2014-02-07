@@ -19,6 +19,8 @@ extern "C" {
 WC_EXPORT wcThread * wcThread_start( wcConnection * connection );
 WC_EXPORT bool wcThread_stop( wcThread * thread );
 
+WC_EXPORT bool wcThread_isRunning( wcThread * thread );
+
 WC_EXPORT wcWheelMovement wcThread_retrieveWheelMovement( wcThread * thread, unsigned int index );
 WC_EXPORT unsigned int wcThread_getWheelCount( wcThread * thread );
 

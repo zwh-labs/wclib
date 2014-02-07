@@ -3,6 +3,16 @@
 #include <string.h>
 
 
+bool wcPacket_isValid( const wcPacket * packet, uint16_t size )
+{
+	if( size < sizeof(wcPacket_Header) )
+		return false;
+	if( size < sizeof(wcPacket_Header) + (uint16_t)packet->header.length )
+		return false;
+	return true;
+}
+
+
 uint16_t wcPacket_size( const wcPacket * packet )
 {
 	return sizeof(wcPacket_Header) + (uint16_t)(packet->header.length);

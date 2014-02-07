@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 
 struct _wcThread
@@ -29,12 +30,22 @@ struct _wcThread
 };
 
 
+static void logError( const char * format, ... )
+{
+	va_list arglist;
+	fprintf( stderr, "wcThread: " );
+	va_start( arglist, format );
+	vfprintf( stderr, format, arglist );
+	va_end( arglist );
+}
+
+
 static void handleWheel( wcThread * thread, wcPacket_Wheel * pw )
 {
 	wcThread_Mutex_lock( thread->wheelsMutex );
 		if( thread->numWheels <= pw->channel )
 		{
-//			fprintf( stderr, "Increasing number of tracked wheels from %d to %d\n", thread->numWheels, pw->channel + 1 );
+//			logError( "Increasing number of tracked wheels from %d to %d\n", thread->numWheels, pw->channel + 1 );
 			thread->wheelMovements = (wcWheelMovement*) realloc( thread->wheelMovements, sizeof(wcWheelMovement) * (pw->channel + 1) );
 			wcWheelMovement_createFromPacket( &(thread->wheelMovements[thread->numWheels]), pw );
 			thread->numWheels = pw->channel + 1;
@@ -56,17 +67,31 @@ static void connectionThread( void * data )
 		wcPacket packet;
 		int read;
 
+		wcThread_Mutex_lock( thread->shutdownMutex );
+			shutdown = thread->shutdown;
+		wcThread_Mutex_unlock( thread->shutdownMutex );
+
 		wcThread_Mutex_lock( thread->connectionMutex );
 			read = wcConnection_read( thread->connection, &packet );
 		wcThread_Mutex_unlock( thread->connectionMutex );
 
-		if( read <= 0)
+		if( read < 0 )
 		{
-			fprintf( stderr, "Cannot read from connection\n" );
+			logError( "Error while reading from connection\n" );
 			wcThread_Mutex_lock( thread->shutdownMutex );
 				thread->shutdown = true;
 			wcThread_Mutex_unlock( thread->shutdownMutex );
 			break;
+		}
+		else if( read == 0 )
+		{
+			logError( "Timeout while reading from connection\n" );
+			continue;
+		}
+		else if( !wcPacket_isValid( &packet, read ) )
+		{
+			logError( "Invalid packet received\n" );
+			continue;
 		}
 
 		switch( packet.header.type )
@@ -75,26 +100,22 @@ static void connectionThread( void * data )
 			{
 				wcPacket_Message * message = (wcPacket_Message*)(&packet);
 				message->text[message->header.length] = 0;
-				fprintf( stderr, "Received message:\"%s\"\n", message->text );
+				logError( "Received message:\"%s\"\n", message->text );
 				break;
 			}
 			case WC_PACKET_WHEEL_TYPE:
 			{
 				wcPacket_Wheel * wheel = (wcPacket_Wheel*)(&packet);
 				handleWheel( thread, wheel );
-//				fprintf( stderr, "Received wheel:\tchannel=%d\terror=%d\tvalue=%d\n", wheel->channel, wheel->error, wheel->value );
+//				logError( "Received wheel:\tchannel=%d\terror=%d\tvalue=%d\n", wheel->channel, wheel->error, wheel->value );
 				break;
 			}
 			default:
 			{
-				fprintf( stderr, "Received unknown packet type: %d\n", packet.header.type );
+				logError( "Received unknown packet type: %d\n", packet.header.type );
 				break;
 			}
 		}
-
-		wcThread_Mutex_lock( thread->shutdownMutex );
-			shutdown = thread->shutdown;
-		wcThread_Mutex_unlock( thread->shutdownMutex );
 	}
 }
 
@@ -114,7 +135,7 @@ wcThread * wcThread_start( wcConnection * connection )
 
 	if( !thread->connectionMutex || !thread->wheelsMutex || !thread->shutdownMutex )
 	{
-		fprintf( stderr, "wcThread_Mutex_new failed\n" );
+		logError( "wcThread_Mutex_new failed\n" );
 		free( thread );
 		return NULL;
 	}
@@ -123,7 +144,7 @@ wcThread * wcThread_start( wcConnection * connection )
 
 	if( !thread->thread )
 	{
-		fprintf( stderr, "wcThread_Thread_new failed\n" );
+		logError( "wcThread_Thread_new failed\n" );
 		wcThread_Thread_delete( thread->thread );
 		wcThread_Mutex_delete( thread->connectionMutex );
 		wcThread_Mutex_delete( thread->wheelsMutex );
@@ -155,6 +176,16 @@ bool wcThread_stop( wcThread * thread )
 	free( thread );
 
 	return true;
+}
+
+
+bool wcThread_isRunning( wcThread* thread )
+{
+	bool shutdown;
+	wcThread_Mutex_lock( thread->shutdownMutex );
+		shutdown = thread->shutdown;
+	wcThread_Mutex_unlock( thread->shutdownMutex );
+	return !shutdown;
 }
 
 

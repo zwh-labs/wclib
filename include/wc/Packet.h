@@ -4,6 +4,7 @@
 
 #include "wc_export.h"
 #include <stdint.h>
+#include <stdbool.h>
 
 
 #define WC_PACKET_MAXSIZE 255
@@ -64,6 +65,7 @@ typedef struct
 extern "C" {
 #endif
 
+WC_EXPORT bool wcPacket_isValid( const wcPacket * packet, uint16_t size );
 WC_EXPORT uint16_t wcPacket_size( const wcPacket * packet );
 
 WC_EXPORT void wcPacket_Message_create( wcPacket_Message * message, const char * string );
