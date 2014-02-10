@@ -5,11 +5,18 @@
 #include <wc/Error.h>
 
 
+/**
+ * \defgroup wcWheelMovement Wheel movement
+ * \brief A structure representing wheel movements.
+ * @{
+ */
+
+/// A wheel movement.
 typedef struct
 {
-	unsigned int index;
-	int increments;
-	wcError error;
+	unsigned int index; ///< Channel index.
+	int increments;     ///< The number of increments moved.
+	wcError error;      ///< Error indicator.
 } wcWheelMovement;
 
 
@@ -37,5 +44,8 @@ static inline void wcWheelMovement_reset( wcWheelMovement * wm )
 static inline void wcWheelMovement_accumulate( wcWheelMovement * wm, int increment, wcError error )
 	{ wm->increments += increment; wm->error |= error; }
 
+/**
+ * @}
+ */
 
 #endif

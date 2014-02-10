@@ -1,6 +1,11 @@
 #ifndef _WC_ERROR_H_
 #define _WC_ERROR_H_
 
+/**
+ * \defgroup wcError Error conditions
+ * \brief Error conditions used by the controller.
+ * @{
+ */
 
 enum wcErrorTypes
 {
@@ -11,5 +16,8 @@ enum wcErrorTypes
 
 typedef unsigned char wcError;
 
+/**
+ * @}
+ */
 
 #endif

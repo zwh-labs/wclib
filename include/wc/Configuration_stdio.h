@@ -7,6 +7,11 @@
 
 #include <stdio.h>
 
+/**
+ * \defgroup wcConfiguration_stdio Configuration utilities for textual representation
+ * \brief Configuration formatting and output functions.
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,5 +25,8 @@ WC_EXPORT int wcConfiguration_print( const wcConfiguration * configuration );
 }
 #endif
 
+/**
+ * @}
+ */
 
 #endif

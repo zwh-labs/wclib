@@ -6,7 +6,6 @@
 
 
 #define DEFAULT_WHEELINCREMENTSPERTURN (4096)
-#define DEFAULT_WHEELDIAMETER           (1.0)
 
 #ifdef _WIN32
 	#define DEFAULT_DEVICEPATH "\\\\.\\COM1"

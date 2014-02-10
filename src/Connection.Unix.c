@@ -18,11 +18,11 @@ struct _wcConnection
 };
 
 
-wcConnection * wcConnection_open( const char * file )
+wcConnection * wcConnection_open( const char * devicePath )
 {
 	wcConnection * connection = (wcConnection*) malloc( sizeof(wcConnection) );
 
-	connection->fd = open( file, O_RDWR | O_NOCTTY );
+	connection->fd = open( devicePath, O_RDWR | O_NOCTTY );
 	if( connection->fd < 0 )
 	{
 		free( connection );

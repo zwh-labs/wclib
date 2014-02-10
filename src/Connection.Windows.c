@@ -12,11 +12,11 @@ struct _wcConnection
 };
 
 
-wcConnection * wcConnection_open( const char * file )
+wcConnection * wcConnection_open( const char * devicePath )
 {
 	wcConnection * connection = (wcConnection*) malloc( sizeof(wcConnection) );
 
-	connection->handle = CreateFile( file, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0, NULL );
+	connection->handle = CreateFile( devicePath, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0, NULL );
 	if( connection->handle == INVALID_HANDLE_VALUE )
 	{
 		free( connection );
