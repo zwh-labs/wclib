@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_connection_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Connection.h</div>  </div>
@@ -96,39 +114,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">   11</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcConnection <a class="code" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;WC_EXPORT <a class="code" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * <a class="code" href="_connection_8h.html#a44afd63374b3d26c5af4931cc9a25ecb">wcConnection_open</a>( <span class="keyword">const</span> <span class="keywordtype">char</span> * file );</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="_connection_8h.html#a9eb51b70a70529b868c5851275fff784">wcConnection_close</a>( <a class="code" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller );</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;WC_EXPORT <span class="keywordtype">int</span> <a class="code" href="_connection_8h.html#aa8a7cf4a0060dd39225f014f84942627">wcConnection_read</a>( <a class="code" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller, <a class="code" href="structwc_packet.html">wcPacket</a> * packet );</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;WC_EXPORT <span class="keywordtype">int</span> <a class="code" href="_connection_8h.html#a8a77e52d33fe9c81f3f587e2a03274fe">wcConnection_write</a>( <a class="code" href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller, <span class="keyword">const</span> <a class="code" href="structwc_packet.html">wcPacket</a> * packet );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="_connection_8h_html_a1a83536f9673e59f289bfe1ed3fc7a8e"><div class="ttname"><a href="_connection_8h.html#a1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a></div><div class="ttdeci">struct _wcConnection wcConnection</div><div class="ttdef"><b>Definition:</b> Connection.h:11</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcConnection <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;WC_EXPORT <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * <a class="code" href="group__wc_connection.html#gae9d1832c8b40b4fe8d887185efe0d5f8">wcConnection_open</a>( <span class="keyword">const</span> <span class="keywordtype">char</span> * devicePath );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="group__wc_connection.html#ga9eb51b70a70529b868c5851275fff784">wcConnection_close</a>( <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;WC_EXPORT <span class="keywordtype">int</span> <a class="code" href="group__wc_connection.html#gaa8a7cf4a0060dd39225f014f84942627">wcConnection_read</a>( <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller, <a class="code" href="group__wc_packet.html#structwc_packet">wcPacket</a> * packet );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;WC_EXPORT <span class="keywordtype">int</span> <a class="code" href="group__wc_connection.html#ga8a77e52d33fe9c81f3f587e2a03274fe">wcConnection_write</a>( <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * controller, <span class="keyword">const</span> <a class="code" href="group__wc_packet.html#structwc_packet">wcPacket</a> * packet );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="group__wc_connection_html_ga9eb51b70a70529b868c5851275fff784"><div class="ttname"><a href="group__wc_connection.html#ga9eb51b70a70529b868c5851275fff784">wcConnection_close</a></div><div class="ttdeci">WC_EXPORT bool wcConnection_close(wcConnection *controller)</div><div class="ttdoc">Closes an opened connection. </div></div>
+<div class="ttc" id="group__wc_packet_html_structwc_packet"><div class="ttname"><a href="group__wc_packet.html#structwc_packet">wcPacket</a></div><div class="ttdoc">Generic packet. </div><div class="ttdef"><b>Definition:</b> Packet.h:52</div></div>
 <div class="ttc" id="_packet_8h_html"><div class="ttname"><a href="_packet_8h.html">Packet.h</a></div></div>
-<div class="ttc" id="_connection_8h_html_a9eb51b70a70529b868c5851275fff784"><div class="ttname"><a href="_connection_8h.html#a9eb51b70a70529b868c5851275fff784">wcConnection_close</a></div><div class="ttdeci">WC_EXPORT bool wcConnection_close(wcConnection *controller)</div></div>
-<div class="ttc" id="structwc_packet_html"><div class="ttname"><a href="structwc_packet.html">wcPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.h:31</div></div>
-<div class="ttc" id="_connection_8h_html_a44afd63374b3d26c5af4931cc9a25ecb"><div class="ttname"><a href="_connection_8h.html#a44afd63374b3d26c5af4931cc9a25ecb">wcConnection_open</a></div><div class="ttdeci">WC_EXPORT wcConnection * wcConnection_open(const char *file)</div></div>
-<div class="ttc" id="_connection_8h_html_a8a77e52d33fe9c81f3f587e2a03274fe"><div class="ttname"><a href="_connection_8h.html#a8a77e52d33fe9c81f3f587e2a03274fe">wcConnection_write</a></div><div class="ttdeci">WC_EXPORT int wcConnection_write(wcConnection *controller, const wcPacket *packet)</div></div>
-<div class="ttc" id="_connection_8h_html_aa8a7cf4a0060dd39225f014f84942627"><div class="ttname"><a href="_connection_8h.html#aa8a7cf4a0060dd39225f014f84942627">wcConnection_read</a></div><div class="ttdeci">WC_EXPORT int wcConnection_read(wcConnection *controller, wcPacket *packet)</div></div>
+<div class="ttc" id="group__wc_connection_html_ga1a83536f9673e59f289bfe1ed3fc7a8e"><div class="ttname"><a href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a></div><div class="ttdeci">struct _wcConnection wcConnection</div><div class="ttdoc">The connection structure. </div><div class="ttdef"><b>Definition:</b> Connection.h:26</div></div>
+<div class="ttc" id="group__wc_connection_html_gaa8a7cf4a0060dd39225f014f84942627"><div class="ttname"><a href="group__wc_connection.html#gaa8a7cf4a0060dd39225f014f84942627">wcConnection_read</a></div><div class="ttdeci">WC_EXPORT int wcConnection_read(wcConnection *controller, wcPacket *packet)</div><div class="ttdoc">Reads a packet from an opened connection. </div></div>
+<div class="ttc" id="group__wc_connection_html_ga8a77e52d33fe9c81f3f587e2a03274fe"><div class="ttname"><a href="group__wc_connection.html#ga8a77e52d33fe9c81f3f587e2a03274fe">wcConnection_write</a></div><div class="ttdeci">WC_EXPORT int wcConnection_write(wcConnection *controller, const wcPacket *packet)</div><div class="ttdoc">Writes a packet to an opened connection. </div></div>
+<div class="ttc" id="group__wc_connection_html_gae9d1832c8b40b4fe8d887185efe0d5f8"><div class="ttname"><a href="group__wc_connection.html#gae9d1832c8b40b4fe8d887185efe0d5f8">wcConnection_open</a></div><div class="ttdeci">WC_EXPORT wcConnection * wcConnection_open(const char *devicePath)</div><div class="ttdoc">Opens a new connection. </div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_connection_8h.html">Connection.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

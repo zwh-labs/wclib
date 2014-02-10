@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_wheel_movement___packet_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">WheelMovement_Packet.h</div>  </div>
@@ -96,33 +114,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_packet_8h.html">wc/Packet.h</a>&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> wcWheelMovement_createFromPacket( <a class="code" href="structwc_wheel_movement.html">wcWheelMovement</a> * wm, <span class="keyword">const</span> <a class="code" href="structwc_packet___wheel.html">wcPacket_Wheel</a> * pw )</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_wheel_movement___packet_8h.html#a9c922b50b3a163b81873e5ed019281fc">   10</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="_wheel_movement___packet_8h.html#a9c922b50b3a163b81873e5ed019281fc">wcWheelMovement_createFromPacket</a>( <a class="code" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> * wm, <span class="keyword">const</span> <a class="code" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> * pw )</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    wcWheelMovement_create( wm, pw-&gt;<a class="code" href="structwc_packet___wheel.html#a715f5cb061d11eb75981741eda4dafcd">channel</a> );</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    wcWheelMovement_accumulate( wm, pw-&gt;<a class="code" href="structwc_packet___wheel.html#a7375fa3485ce43bbc621f90ce895d52a">value</a>, pw-&gt;<a class="code" href="structwc_packet___wheel.html#adc64ccb7538429fe78e3fe0139267370">error</a> );</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="group__wc_wheel_movement.html#gabb181a3a381c00b9f15f47c39ad0ad5d">wcWheelMovement_create</a>( wm, pw-&gt;<a class="code" href="group__wc_packet.html#a715f5cb061d11eb75981741eda4dafcd">channel</a> );</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d">wcWheelMovement_accumulate</a>( wm, pw-&gt;<a class="code" href="group__wc_packet.html#a7375fa3485ce43bbc621f90ce895d52a">value</a>, pw-&gt;<a class="code" href="group__wc_packet.html#adc64ccb7538429fe78e3fe0139267370">error</a> );</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> wcWheelMovement_accumulateFromPacket( <a class="code" href="structwc_wheel_movement.html">wcWheelMovement</a> * wm, <span class="keyword">const</span> <a class="code" href="structwc_packet___wheel.html">wcPacket_Wheel</a> * pw )</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_wheel_movement___packet_8h.html#a0b87dfcfaba41358093fdf556cb9eeff">   17</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="_wheel_movement___packet_8h.html#a0b87dfcfaba41358093fdf556cb9eeff">wcWheelMovement_accumulateFromPacket</a>( <a class="code" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> * wm, <span class="keyword">const</span> <a class="code" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> * pw )</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    wcWheelMovement_accumulate( wm, pw-&gt;<a class="code" href="structwc_packet___wheel.html#a7375fa3485ce43bbc621f90ce895d52a">value</a>, pw-&gt;<a class="code" href="structwc_packet___wheel.html#adc64ccb7538429fe78e3fe0139267370">error</a> );</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d">wcWheelMovement_accumulate</a>( wm, pw-&gt;<a class="code" href="group__wc_packet.html#a7375fa3485ce43bbc621f90ce895d52a">value</a>, pw-&gt;<a class="code" href="group__wc_packet.html#adc64ccb7538429fe78e3fe0139267370">error</a> );</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="structwc_packet___wheel_html_a715f5cb061d11eb75981741eda4dafcd"><div class="ttname"><a href="structwc_packet___wheel.html#a715f5cb061d11eb75981741eda4dafcd">wcPacket_Wheel::channel</a></div><div class="ttdeci">uint8_t channel</div><div class="ttdef"><b>Definition:</b> Packet.h:54</div></div>
-<div class="ttc" id="structwc_packet___wheel_html"><div class="ttname"><a href="structwc_packet___wheel.html">wcPacket_Wheel</a></div><div class="ttdef"><b>Definition:</b> Packet.h:51</div></div>
+<div class="ttc" id="_wheel_movement___packet_8h_html_a9c922b50b3a163b81873e5ed019281fc"><div class="ttname"><a href="_wheel_movement___packet_8h.html#a9c922b50b3a163b81873e5ed019281fc">wcWheelMovement_createFromPacket</a></div><div class="ttdeci">static void wcWheelMovement_createFromPacket(wcWheelMovement *wm, const wcPacket_Wheel *pw)</div><div class="ttdef"><b>Definition:</b> WheelMovement_Packet.h:10</div></div>
+<div class="ttc" id="group__wc_wheel_movement_html_structwc_wheel_movement"><div class="ttname"><a href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a></div><div class="ttdoc">A wheel movement. </div><div class="ttdef"><b>Definition:</b> WheelMovement.h:15</div></div>
+<div class="ttc" id="group__wc_wheel_movement_html_ga4c77c5923933632b6aea0a18ec7b545d"><div class="ttname"><a href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d">wcWheelMovement_accumulate</a></div><div class="ttdeci">static void wcWheelMovement_accumulate(wcWheelMovement *wm, int increment, wcError error)</div><div class="ttdef"><b>Definition:</b> WheelMovement.h:44</div></div>
 <div class="ttc" id="_packet_8h_html"><div class="ttname"><a href="_packet_8h.html">Packet.h</a></div></div>
-<div class="ttc" id="structwc_packet___wheel_html_adc64ccb7538429fe78e3fe0139267370"><div class="ttname"><a href="structwc_packet___wheel.html#adc64ccb7538429fe78e3fe0139267370">wcPacket_Wheel::error</a></div><div class="ttdeci">uint8_t error</div><div class="ttdef"><b>Definition:</b> Packet.h:55</div></div>
-<div class="ttc" id="structwc_wheel_movement_html"><div class="ttname"><a href="structwc_wheel_movement.html">wcWheelMovement</a></div><div class="ttdef"><b>Definition:</b> WheelMovement.h:8</div></div>
-<div class="ttc" id="structwc_packet___wheel_html_a7375fa3485ce43bbc621f90ce895d52a"><div class="ttname"><a href="structwc_packet___wheel.html#a7375fa3485ce43bbc621f90ce895d52a">wcPacket_Wheel::value</a></div><div class="ttdeci">int16_t value</div><div class="ttdef"><b>Definition:</b> Packet.h:56</div></div>
+<div class="ttc" id="group__wc_packet_html_a715f5cb061d11eb75981741eda4dafcd"><div class="ttname"><a href="group__wc_packet.html#a715f5cb061d11eb75981741eda4dafcd">wcPacket_Wheel::channel</a></div><div class="ttdeci">uint8_t channel</div><div class="ttdoc">The channel index. </div><div class="ttdef"><b>Definition:</b> Packet.h:78</div></div>
+<div class="ttc" id="group__wc_wheel_movement_html_gabb181a3a381c00b9f15f47c39ad0ad5d"><div class="ttname"><a href="group__wc_wheel_movement.html#gabb181a3a381c00b9f15f47c39ad0ad5d">wcWheelMovement_create</a></div><div class="ttdeci">static void wcWheelMovement_create(wcWheelMovement *wm, unsigned int index)</div><div class="ttdef"><b>Definition:</b> WheelMovement.h:38</div></div>
+<div class="ttc" id="group__wc_packet_html_a7375fa3485ce43bbc621f90ce895d52a"><div class="ttname"><a href="group__wc_packet.html#a7375fa3485ce43bbc621f90ce895d52a">wcPacket_Wheel::value</a></div><div class="ttdeci">int16_t value</div><div class="ttdoc">The number of increments accumulated since last wheel packet. </div><div class="ttdef"><b>Definition:</b> Packet.h:80</div></div>
+<div class="ttc" id="group__wc_packet_html_structwc_packet___wheel"><div class="ttname"><a href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a></div><div class="ttdoc">A wheel packet. </div><div class="ttdef"><b>Definition:</b> Packet.h:75</div></div>
+<div class="ttc" id="_wheel_movement___packet_8h_html_a0b87dfcfaba41358093fdf556cb9eeff"><div class="ttname"><a href="_wheel_movement___packet_8h.html#a0b87dfcfaba41358093fdf556cb9eeff">wcWheelMovement_accumulateFromPacket</a></div><div class="ttdeci">static void wcWheelMovement_accumulateFromPacket(wcWheelMovement *wm, const wcPacket_Wheel *pw)</div><div class="ttdef"><b>Definition:</b> WheelMovement_Packet.h:17</div></div>
+<div class="ttc" id="group__wc_packet_html_adc64ccb7538429fe78e3fe0139267370"><div class="ttname"><a href="group__wc_packet.html#adc64ccb7538429fe78e3fe0139267370">wcPacket_Wheel::error</a></div><div class="ttdeci">uint8_t error</div><div class="ttdoc">A value defined in wcErrorTypes . </div><div class="ttdef"><b>Definition:</b> Packet.h:79</div></div>
 <div class="ttc" id="_wheel_movement_8h_html"><div class="ttname"><a href="_wheel_movement_8h.html">WheelMovement.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_wheel_movement___packet_8h.html">WheelMovement_Packet.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

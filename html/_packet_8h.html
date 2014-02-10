@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_packet_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
@@ -93,6 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &quot;wc_export.h&quot;</code><br/>
 <code>#include &lt;stdint.h&gt;</code><br/>
+<code>#include &lt;stdbool.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Packet.h:</div>
 <div class="dyncontent">
@@ -112,233 +131,74 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwc_packet___header.html">wcPacket_Header</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwc_packet.html">wcPacket</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwc_packet___request_info.html">wcPacket_RequestInfo</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwc_packet___message.html">wcPacket_Message</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwc_packet___wheel.html">wcPacket_Wheel</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwc_packet___header"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#structwc_packet___header">wcPacket_Header</a></td></tr>
+<tr class="memdesc:structwc_packet___header"><td class="mdescLeft">&#160;</td><td class="mdescRight">The header used in each packet.  <a href="group__wc_packet.html#structwc_packet___header">More...</a><br/></td></tr>
+<tr class="separator:structwc_packet___header"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwc_packet"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#structwc_packet">wcPacket</a></td></tr>
+<tr class="memdesc:structwc_packet"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic packet.  <a href="group__wc_packet.html#structwc_packet">More...</a><br/></td></tr>
+<tr class="separator:structwc_packet"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwc_packet___request_info"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#structwc_packet___request_info">wcPacket_RequestInfo</a></td></tr>
+<tr class="memdesc:structwc_packet___request_info"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests an information message from receiver.  <a href="group__wc_packet.html#structwc_packet___request_info">More...</a><br/></td></tr>
+<tr class="separator:structwc_packet___request_info"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwc_packet___message"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#structwc_packet___message">wcPacket_Message</a></td></tr>
+<tr class="memdesc:structwc_packet___message"><td class="mdescLeft">&#160;</td><td class="mdescRight">A message - transports a simple string.  <a href="group__wc_packet.html#structwc_packet___message">More...</a><br/></td></tr>
+<tr class="separator:structwc_packet___message"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwc_packet___wheel"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a></td></tr>
+<tr class="memdesc:structwc_packet___wheel"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wheel packet.  <a href="group__wc_packet.html#structwc_packet___wheel">More...</a><br/></td></tr>
+<tr class="separator:structwc_packet___wheel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad544c3ccbe57a86363df1dd9d79d31b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#ad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a>&#160;&#160;&#160;255</td></tr>
-<tr class="separator:ad544c3ccbe57a86363df1dd9d79d31b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc27f54f54ec6ee5f132e779a199c40b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#abc27f54f54ec6ee5f132e779a199c40b">WC_PACKET_MAXLENGTH</a>&#160;&#160;&#160;( <a class="el" href="_packet_8h.html#ad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td></tr>
-<tr class="separator:abc27f54f54ec6ee5f132e779a199c40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2b17a7a6c3900da7ad622dae51267e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#a2e2b17a7a6c3900da7ad622dae51267e">WC_PACKET_MESSAGE_TYPE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a2e2b17a7a6c3900da7ad622dae51267e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb84020e8e862236eff57c79ce01939d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#acb84020e8e862236eff57c79ce01939d">WC_PACKET_MESSAGE_MAXLENGTH</a>&#160;&#160;&#160;( <a class="el" href="_packet_8h.html#ad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td></tr>
-<tr class="separator:acb84020e8e862236eff57c79ce01939d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba8dae36ebfb1c81debbcdd988e8b80d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#aba8dae36ebfb1c81debbcdd988e8b80d">WC_PACKET_WHEEL_TYPE</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:aba8dae36ebfb1c81debbcdd988e8b80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecef5d9f8c69bb8ba4718acd2feca1d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#aecef5d9f8c69bb8ba4718acd2feca1d3">WC_PACKET_WHEEL_LENGTH</a>&#160;&#160;&#160;( sizeof(<a class="el" href="structwc_packet___wheel.html">wcPacket_Wheel</a>) - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td></tr>
-<tr class="separator:aecef5d9f8c69bb8ba4718acd2feca1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e9ddf0525d91589d0f783ac623417e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#a0e9ddf0525d91589d0f783ac623417e4">WC_PACKET_REQUESTINFO_TYPE</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a0e9ddf0525d91589d0f783ac623417e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad544c3ccbe57a86363df1dd9d79d31b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a>&#160;&#160;&#160;255</td></tr>
+<tr class="memdesc:gad544c3ccbe57a86363df1dd9d79d31b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum size of a packet.  <a href="group__wc_packet.html#gad544c3ccbe57a86363df1dd9d79d31b3">More...</a><br/></td></tr>
+<tr class="separator:gad544c3ccbe57a86363df1dd9d79d31b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc27f54f54ec6ee5f132e779a199c40b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gabc27f54f54ec6ee5f132e779a199c40b">WC_PACKET_MAXLENGTH</a>&#160;&#160;&#160;( <a class="el" href="group__wc_packet.html#gad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="group__wc_packet.html#structwc_packet___header">wcPacket_Header</a>) )</td></tr>
+<tr class="memdesc:gabc27f54f54ec6ee5f132e779a199c40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum size of a packet's payload data.  <a href="group__wc_packet.html#gabc27f54f54ec6ee5f132e779a199c40b">More...</a><br/></td></tr>
+<tr class="separator:gabc27f54f54ec6ee5f132e779a199c40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e2b17a7a6c3900da7ad622dae51267e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#ga2e2b17a7a6c3900da7ad622dae51267e">WC_PACKET_MESSAGE_TYPE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga2e2b17a7a6c3900da7ad622dae51267e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A message - transports a simple string.  <a href="group__wc_packet.html#ga2e2b17a7a6c3900da7ad622dae51267e">More...</a><br/></td></tr>
+<tr class="separator:ga2e2b17a7a6c3900da7ad622dae51267e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb84020e8e862236eff57c79ce01939d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gacb84020e8e862236eff57c79ce01939d">WC_PACKET_MESSAGE_MAXLENGTH</a>&#160;&#160;&#160;( <a class="el" href="group__wc_packet.html#gad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="group__wc_packet.html#structwc_packet___header">wcPacket_Header</a>) )</td></tr>
+<tr class="memdesc:gacb84020e8e862236eff57c79ce01939d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum length of a message packet.  <a href="group__wc_packet.html#gacb84020e8e862236eff57c79ce01939d">More...</a><br/></td></tr>
+<tr class="separator:gacb84020e8e862236eff57c79ce01939d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba8dae36ebfb1c81debbcdd988e8b80d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gaba8dae36ebfb1c81debbcdd988e8b80d">WC_PACKET_WHEEL_TYPE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:gaba8dae36ebfb1c81debbcdd988e8b80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wheel packet.  <a href="group__wc_packet.html#gaba8dae36ebfb1c81debbcdd988e8b80d">More...</a><br/></td></tr>
+<tr class="separator:gaba8dae36ebfb1c81debbcdd988e8b80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecef5d9f8c69bb8ba4718acd2feca1d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gaecef5d9f8c69bb8ba4718acd2feca1d3">WC_PACKET_WHEEL_LENGTH</a>&#160;&#160;&#160;( sizeof(<a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a>) - sizeof(<a class="el" href="group__wc_packet.html#structwc_packet___header">wcPacket_Header</a>) )</td></tr>
+<tr class="memdesc:gaecef5d9f8c69bb8ba4718acd2feca1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of a wheel packet.  <a href="group__wc_packet.html#gaecef5d9f8c69bb8ba4718acd2feca1d3">More...</a><br/></td></tr>
+<tr class="separator:gaecef5d9f8c69bb8ba4718acd2feca1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e9ddf0525d91589d0f783ac623417e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#ga0e9ddf0525d91589d0f783ac623417e4">WC_PACKET_REQUESTINFO_TYPE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ga0e9ddf0525d91589d0f783ac623417e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests an information message from receiver.  <a href="group__wc_packet.html#ga0e9ddf0525d91589d0f783ac623417e4">More...</a><br/></td></tr>
+<tr class="separator:ga0e9ddf0525d91589d0f783ac623417e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af99b1587b4919a17239bf92bcfb710db"><td class="memItemLeft" align="right" valign="top">WC_EXPORT uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#af99b1587b4919a17239bf92bcfb710db">wcPacket_size</a> (const <a class="el" href="structwc_packet.html">wcPacket</a> *packet)</td></tr>
-<tr class="separator:af99b1587b4919a17239bf92bcfb710db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438ee91ffada645b310df713d14e0f96"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#a438ee91ffada645b310df713d14e0f96">wcPacket_Message_create</a> (<a class="el" href="structwc_packet___message.html">wcPacket_Message</a> *message, const char *string)</td></tr>
-<tr class="separator:a438ee91ffada645b310df713d14e0f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a034d52486d6447115071b15cff164abe"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#a034d52486d6447115071b15cff164abe">wcPacket_Wheel_create</a> (<a class="el" href="structwc_packet___wheel.html">wcPacket_Wheel</a> *wheel, uint8_t channel, uint8_t error, int16_t value)</td></tr>
-<tr class="separator:a034d52486d6447115071b15cff164abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a071ea40b0eede0049551772e017fe4c8"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_packet_8h.html#a071ea40b0eede0049551772e017fe4c8">wcPacket_RequestInfo_create</a> (<a class="el" href="structwc_packet___request_info.html">wcPacket_RequestInfo</a> *requestInfo)</td></tr>
-<tr class="separator:a071ea40b0eede0049551772e017fe4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa488eadf8dd2fe84686c9947c59e7645"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gaa488eadf8dd2fe84686c9947c59e7645">wcPacket_isValid</a> (const <a class="el" href="group__wc_packet.html#structwc_packet">wcPacket</a> *packet, uint16_t size)</td></tr>
+<tr class="memdesc:gaa488eadf8dd2fe84686c9947c59e7645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a received packet for validity.  <a href="group__wc_packet.html#gaa488eadf8dd2fe84686c9947c59e7645">More...</a><br/></td></tr>
+<tr class="separator:gaa488eadf8dd2fe84686c9947c59e7645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf99b1587b4919a17239bf92bcfb710db"><td class="memItemLeft" align="right" valign="top">WC_EXPORT uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#gaf99b1587b4919a17239bf92bcfb710db">wcPacket_size</a> (const <a class="el" href="group__wc_packet.html#structwc_packet">wcPacket</a> *packet)</td></tr>
+<tr class="memdesc:gaf99b1587b4919a17239bf92bcfb710db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size of a packet.  <a href="group__wc_packet.html#gaf99b1587b4919a17239bf92bcfb710db">More...</a><br/></td></tr>
+<tr class="separator:gaf99b1587b4919a17239bf92bcfb710db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga438ee91ffada645b310df713d14e0f96"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#ga438ee91ffada645b310df713d14e0f96">wcPacket_Message_create</a> (<a class="el" href="group__wc_packet.html#structwc_packet___message">wcPacket_Message</a> *message, const char *string)</td></tr>
+<tr class="memdesc:ga438ee91ffada645b310df713d14e0f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a message type packet.  <a href="group__wc_packet.html#ga438ee91ffada645b310df713d14e0f96">More...</a><br/></td></tr>
+<tr class="separator:ga438ee91ffada645b310df713d14e0f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga034d52486d6447115071b15cff164abe"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#ga034d52486d6447115071b15cff164abe">wcPacket_Wheel_create</a> (<a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> *wheel, uint8_t channel, uint8_t error, int16_t value)</td></tr>
+<tr class="memdesc:ga034d52486d6447115071b15cff164abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a wheel type packet.  <a href="group__wc_packet.html#ga034d52486d6447115071b15cff164abe">More...</a><br/></td></tr>
+<tr class="separator:ga034d52486d6447115071b15cff164abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga071ea40b0eede0049551772e017fe4c8"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_packet.html#ga071ea40b0eede0049551772e017fe4c8">wcPacket_RequestInfo_create</a> (<a class="el" href="group__wc_packet.html#structwc_packet___request_info">wcPacket_RequestInfo</a> *requestInfo)</td></tr>
+<tr class="memdesc:ga071ea40b0eede0049551772e017fe4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a requestInfo type packet.  <a href="group__wc_packet.html#ga071ea40b0eede0049551772e017fe4c8">More...</a><br/></td></tr>
+<tr class="separator:ga071ea40b0eede0049551772e017fe4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="abc27f54f54ec6ee5f132e779a199c40b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_MAXLENGTH&#160;&#160;&#160;( <a class="el" href="_packet_8h.html#ad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad544c3ccbe57a86363df1dd9d79d31b3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_MAXSIZE&#160;&#160;&#160;255</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acb84020e8e862236eff57c79ce01939d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_MESSAGE_MAXLENGTH&#160;&#160;&#160;( <a class="el" href="_packet_8h.html#ad544c3ccbe57a86363df1dd9d79d31b3">WC_PACKET_MAXSIZE</a> - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2e2b17a7a6c3900da7ad622dae51267e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_MESSAGE_TYPE&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0e9ddf0525d91589d0f783ac623417e4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_REQUESTINFO_TYPE&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aecef5d9f8c69bb8ba4718acd2feca1d3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_WHEEL_LENGTH&#160;&#160;&#160;( sizeof(<a class="el" href="structwc_packet___wheel.html">wcPacket_Wheel</a>) - sizeof(<a class="el" href="structwc_packet___header.html">wcPacket_Header</a>) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aba8dae36ebfb1c81debbcdd988e8b80d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WC_PACKET_WHEEL_TYPE&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a438ee91ffada645b310df713d14e0f96"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcPacket_Message_create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structwc_packet___message.html">wcPacket_Message</a> *&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>string</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a071ea40b0eede0049551772e017fe4c8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcPacket_RequestInfo_create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structwc_packet___request_info.html">wcPacket_RequestInfo</a> *&#160;</td>
-          <td class="paramname"><em>requestInfo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af99b1587b4919a17239bf92bcfb710db"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT uint16_t wcPacket_size </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structwc_packet.html">wcPacket</a> *&#160;</td>
-          <td class="paramname"><em>packet</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a034d52486d6447115071b15cff164abe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcPacket_Wheel_create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structwc_packet___wheel.html">wcPacket_Wheel</a> *&#160;</td>
-          <td class="paramname"><em>wheel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>channel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>error</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_packet_8h.html">Packet.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

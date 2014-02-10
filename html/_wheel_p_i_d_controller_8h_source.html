@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_wheel_p_i_d_controller_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">WheelPIDController.h</div>  </div>
@@ -95,59 +113,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_configuration_8h.html">wc/Configuration.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcWheelPIDController <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;WC_EXPORT <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * <a class="code" href="_wheel_p_i_d_controller_8h.html#aa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#aa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#aaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> guard );</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a>( <span class="keyword">const</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#aa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a>( <span class="keyword">const</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a>( <span class="keyword">const</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#a5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a>( <span class="keyword">const</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcWheelPIDController <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;WC_EXPORT <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * <a class="code" href="group__wc_wheel_p_i_d_controller.html#gaa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> currentError, <span class="keywordtype">double</span> delta );</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="_wheel_p_i_d_controller_8h.html#ab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a>( <a class="code" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">int</span> targetAngleIncrements, <span class="keywordtype">int</span> actualAngleIncrements, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> incrementsPerTurn, <span class="keywordtype">double</span> delta );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_aa5adfb6814210f52c9ab8e3758d9972c"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#aa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a></div><div class="ttdeci">WC_EXPORT wcWheelPIDController * wcWheelPIDController_new()</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_ab36ec05c7f3581bd6031d1863d73d6bb"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#ab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_updateAngular(wcWheelPIDController *controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_aa7d8cddcbf3afa2be8b8b493b2fb48bf"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#aa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_reset(wcWheelPIDController *controller)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_aa8d990b28f759413beb91e0a5dae80bc"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#aa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getIntegralGain(const wcWheelPIDController *controller)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a50600fdb9d77ab0a5fbd0f4769ded7ce"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setDerivativeGain(wcWheelPIDController *controller, double gain)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a5788682e6d415dbdb18171fdf1199866"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getWindupGuard(const wcWheelPIDController *controller)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_ad862ffa8e959655ec3e2de34b7e162e7"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#ad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_update(wcWheelPIDController *controller, double currentError, double delta)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_aaec47c0bc60465191b2d2ee408cf131d"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#aaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setIntegralGain(wcWheelPIDController *controller, double gain)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a5e1460b9f448f43d1d413dd47e764e7d"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setProportionalGain(wcWheelPIDController *controller, double gain)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_ae87b3331e0952cbc0a141aef3ec3263a"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a></div><div class="ttdeci">struct _wcWheelPIDController wcWheelPIDController</div><div class="ttdef"><b>Definition:</b> WheelPIDController.h:10</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a9375942e02eb0306ad62913ccf163b33"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a></div><div class="ttdeci">WC_EXPORT bool wcWheelPIDController_delete(wcWheelPIDController *controller)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a6db74b409f5ef5a1342a363845a0b781"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setWindupGuard(wcWheelPIDController *controller, double guard)</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gaa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gaaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> gain );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;WC_EXPORT <span class="keywordtype">void</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> guard );</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a>( <span class="keyword">const</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gaa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a>( <span class="keyword">const</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a>( <span class="keyword">const</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#ga5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a>( <span class="keyword">const</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">double</span> currentError, <span class="keywordtype">double</span> delta );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;WC_EXPORT <span class="keywordtype">double</span> <a class="code" href="group__wc_wheel_p_i_d_controller.html#gab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a>( <a class="code" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> * controller, <span class="keywordtype">int</span> targetAngleIncrements, <span class="keywordtype">int</span> actualAngleIncrements, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> incrementsPerTurn, <span class="keywordtype">double</span> delta );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gaa8d990b28f759413beb91e0a5dae80bc"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gaa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getIntegralGain(const wcWheelPIDController *controller)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gaa7d8cddcbf3afa2be8b8b493b2fb48bf"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gaa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_reset(wcWheelPIDController *controller)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gab105e71cceec0db47205250c89bb1ae4"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getProportionalGain(const wcWheelPIDController *controller)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga5e1460b9f448f43d1d413dd47e764e7d"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setProportionalGain(wcWheelPIDController *controller, double gain)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga5788682e6d415dbdb18171fdf1199866"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getWindupGuard(const wcWheelPIDController *controller)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gad862ffa8e959655ec3e2de34b7e162e7"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_update(wcWheelPIDController *controller, double currentError, double delta)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga50600fdb9d77ab0a5fbd0f4769ded7ce"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setDerivativeGain(wcWheelPIDController *controller, double gain)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gaa5adfb6814210f52c9ab8e3758d9972c"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gaa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a></div><div class="ttdeci">WC_EXPORT wcWheelPIDController * wcWheelPIDController_new()</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gab36ec05c7f3581bd6031d1863d73d6bb"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_updateAngular(wcWheelPIDController *controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga9375942e02eb0306ad62913ccf163b33"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a></div><div class="ttdeci">WC_EXPORT bool wcWheelPIDController_delete(wcWheelPIDController *controller)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gaaec47c0bc60465191b2d2ee408cf131d"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gaaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setIntegralGain(wcWheelPIDController *controller, double gain)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_gae87b3331e0952cbc0a141aef3ec3263a"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a></div><div class="ttdeci">struct _wcWheelPIDController wcWheelPIDController</div><div class="ttdef"><b>Definition:</b> WheelPIDController.h:23</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga6db74b409f5ef5a1342a363845a0b781"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a></div><div class="ttdeci">WC_EXPORT void wcWheelPIDController_setWindupGuard(wcWheelPIDController *controller, double guard)</div></div>
+<div class="ttc" id="group__wc_wheel_p_i_d_controller_html_ga4993675a4010960b2a99eea953c2a4b0"><div class="ttname"><a href="group__wc_wheel_p_i_d_controller.html#ga4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getDerivativeGain(const wcWheelPIDController *controller)</div></div>
 <div class="ttc" id="_configuration_8h_html"><div class="ttname"><a href="_configuration_8h.html">Configuration.h</a></div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_a4993675a4010960b2a99eea953c2a4b0"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#a4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getDerivativeGain(const wcWheelPIDController *controller)</div></div>
-<div class="ttc" id="_wheel_p_i_d_controller_8h_html_ab105e71cceec0db47205250c89bb1ae4"><div class="ttname"><a href="_wheel_p_i_d_controller_8h.html#ab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a></div><div class="ttdeci">WC_EXPORT double wcWheelPIDController_getProportionalGain(const wcWheelPIDController *controller)</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_wheel_p_i_d_controller_8h.html">WheelPIDController.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

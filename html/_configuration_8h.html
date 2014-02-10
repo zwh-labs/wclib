@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_configuration_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#typedef-members">Typedefs</a> &#124;
@@ -111,193 +129,44 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af7032ad6b5b7efb04368a6d7455709d4"><td class="memItemLeft" align="right" valign="top">typedef struct _wcConfiguration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a></td></tr>
-<tr class="separator:af7032ad6b5b7efb04368a6d7455709d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7032ad6b5b7efb04368a6d7455709d4"><td class="memItemLeft" align="right" valign="top">typedef struct _wcConfiguration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a></td></tr>
+<tr class="memdesc:gaf7032ad6b5b7efb04368a6d7455709d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The configuration structure.  <a href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">More...</a><br/></td></tr>
+<tr class="separator:gaf7032ad6b5b7efb04368a6d7455709d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7cb68dfd97f619ad486abbabc546790b"><td class="memItemLeft" align="right" valign="top">WC_EXPORT const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a7cb68dfd97f619ad486abbabc546790b">wcConfiguration_getDevicePath</a> (const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
-<tr class="separator:a7cb68dfd97f619ad486abbabc546790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c37b984efecf90707acbe338bb7726d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a5c37b984efecf90707acbe338bb7726d">wcConfiguration_getWheelCount</a> (const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
-<tr class="separator:a5c37b984efecf90707acbe338bb7726d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77db0d8c1c6c5539fca31ccd872a3773"><td class="memItemLeft" align="right" valign="top">WC_EXPORT unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a77db0d8c1c6c5539fca31ccd872a3773">wcConfiguration_getWheelIncrementsPerTurn</a> (const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, unsigned int wheelIndex)</td></tr>
-<tr class="separator:a77db0d8c1c6c5539fca31ccd872a3773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a427dd3f130b44646b5ec7baf26db81b9"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a427dd3f130b44646b5ec7baf26db81b9">wcConfiguration_setDevicePath</a> (<a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, const char *devicePath)</td></tr>
-<tr class="separator:a427dd3f130b44646b5ec7baf26db81b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06851973506d22d41654cae3540f78f2"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a06851973506d22d41654cae3540f78f2">wcConfiguration_setWheel</a> (<a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, unsigned int wheelIndex, unsigned int incrementsPerTurn)</td></tr>
-<tr class="separator:a06851973506d22d41654cae3540f78f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99e751fb6ba241a3f23c5cccbee4eb56"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#a99e751fb6ba241a3f23c5cccbee4eb56">wcConfiguration_delete</a> (<a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
-<tr class="separator:a99e751fb6ba241a3f23c5cccbee4eb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac900ffcef7a1ed1420d796f58e3b4a93"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_configuration_8h.html#ac900ffcef7a1ed1420d796f58e3b4a93">wcConfiguration_new</a> ()</td></tr>
-<tr class="separator:ac900ffcef7a1ed1420d796f58e3b4a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac900ffcef7a1ed1420d796f58e3b4a93"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#gac900ffcef7a1ed1420d796f58e3b4a93">wcConfiguration_new</a> ()</td></tr>
+<tr class="memdesc:gac900ffcef7a1ed1420d796f58e3b4a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new configuration.  <a href="group__wc_configuration.html#gac900ffcef7a1ed1420d796f58e3b4a93">More...</a><br/></td></tr>
+<tr class="separator:gac900ffcef7a1ed1420d796f58e3b4a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99e751fb6ba241a3f23c5cccbee4eb56"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga99e751fb6ba241a3f23c5cccbee4eb56">wcConfiguration_delete</a> (<a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
+<tr class="memdesc:ga99e751fb6ba241a3f23c5cccbee4eb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a configuration.  <a href="group__wc_configuration.html#ga99e751fb6ba241a3f23c5cccbee4eb56">More...</a><br/></td></tr>
+<tr class="separator:ga99e751fb6ba241a3f23c5cccbee4eb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cb68dfd97f619ad486abbabc546790b"><td class="memItemLeft" align="right" valign="top">WC_EXPORT const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga7cb68dfd97f619ad486abbabc546790b">wcConfiguration_getDevicePath</a> (const <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
+<tr class="memdesc:ga7cb68dfd97f619ad486abbabc546790b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the device path.  <a href="group__wc_configuration.html#ga7cb68dfd97f619ad486abbabc546790b">More...</a><br/></td></tr>
+<tr class="separator:ga7cb68dfd97f619ad486abbabc546790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c37b984efecf90707acbe338bb7726d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga5c37b984efecf90707acbe338bb7726d">wcConfiguration_getWheelCount</a> (const <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration)</td></tr>
+<tr class="memdesc:ga5c37b984efecf90707acbe338bb7726d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of configured wheels.  <a href="group__wc_configuration.html#ga5c37b984efecf90707acbe338bb7726d">More...</a><br/></td></tr>
+<tr class="separator:ga5c37b984efecf90707acbe338bb7726d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77db0d8c1c6c5539fca31ccd872a3773"><td class="memItemLeft" align="right" valign="top">WC_EXPORT unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga77db0d8c1c6c5539fca31ccd872a3773">wcConfiguration_getWheelIncrementsPerTurn</a> (const <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, unsigned int wheelIndex)</td></tr>
+<tr class="memdesc:ga77db0d8c1c6c5539fca31ccd872a3773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of increments per turn of a wheel.  <a href="group__wc_configuration.html#ga77db0d8c1c6c5539fca31ccd872a3773">More...</a><br/></td></tr>
+<tr class="separator:ga77db0d8c1c6c5539fca31ccd872a3773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga427dd3f130b44646b5ec7baf26db81b9"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga427dd3f130b44646b5ec7baf26db81b9">wcConfiguration_setDevicePath</a> (<a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, const char *devicePath)</td></tr>
+<tr class="memdesc:ga427dd3f130b44646b5ec7baf26db81b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the device path.  <a href="group__wc_configuration.html#ga427dd3f130b44646b5ec7baf26db81b9">More...</a><br/></td></tr>
+<tr class="separator:ga427dd3f130b44646b5ec7baf26db81b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06851973506d22d41654cae3540f78f2"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration.html#ga06851973506d22d41654cae3540f78f2">wcConfiguration_setWheel</a> (<a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *configuration, unsigned int wheelIndex, unsigned int incrementsPerTurn)</td></tr>
+<tr class="memdesc:ga06851973506d22d41654cae3540f78f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the configuration of a wheel.  <a href="group__wc_configuration.html#ga06851973506d22d41654cae3540f78f2">More...</a><br/></td></tr>
+<tr class="separator:ga06851973506d22d41654cae3540f78f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="af7032ad6b5b7efb04368a6d7455709d4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct _wcConfiguration <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a99e751fb6ba241a3f23c5cccbee4eb56"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT bool wcConfiguration_delete </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7cb68dfd97f619ad486abbabc546790b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT const char* wcConfiguration_getDevicePath </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5c37b984efecf90707acbe338bb7726d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT unsigned int wcConfiguration_getWheelCount </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a77db0d8c1c6c5539fca31ccd872a3773"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT unsigned int wcConfiguration_getWheelIncrementsPerTurn </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>wheelIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac900ffcef7a1ed1420d796f58e3b4a93"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT <a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a>* wcConfiguration_new </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a427dd3f130b44646b5ec7baf26db81b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcConfiguration_setDevicePath </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>devicePath</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a06851973506d22d41654cae3540f78f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT bool wcConfiguration_setWheel </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_configuration_8h.html#af7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
-          <td class="paramname"><em>configuration</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>wheelIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>incrementsPerTurn</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_configuration_8h.html">Configuration.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

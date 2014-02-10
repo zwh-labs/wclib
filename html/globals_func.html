@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -75,16 +83,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_func.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -96,69 +121,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 &#160;
 
-<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>wcConfiguration_delete()
-: <a class="el" href="_configuration_8h.html#a99e751fb6ba241a3f23c5cccbee4eb56">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga99e751fb6ba241a3f23c5cccbee4eb56">Configuration.h</a>
 </li>
 <li>wcConfiguration_fprint()
-: <a class="el" href="_configuration__stdio_8h.html#a1901cf0bd0e0f87c0d7bffa287b1da90">Configuration_stdio.h</a>
+: <a class="el" href="group__wc_configuration__stdio.html#ga1901cf0bd0e0f87c0d7bffa287b1da90">Configuration_stdio.h</a>
 </li>
 <li>wcConfiguration_getDevicePath()
-: <a class="el" href="_configuration_8h.html#a7cb68dfd97f619ad486abbabc546790b">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga7cb68dfd97f619ad486abbabc546790b">Configuration.h</a>
 </li>
 <li>wcConfiguration_getWheelCount()
-: <a class="el" href="_configuration_8h.html#a5c37b984efecf90707acbe338bb7726d">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga5c37b984efecf90707acbe338bb7726d">Configuration.h</a>
 </li>
 <li>wcConfiguration_getWheelIncrementsPerTurn()
-: <a class="el" href="_configuration_8h.html#a77db0d8c1c6c5539fca31ccd872a3773">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga77db0d8c1c6c5539fca31ccd872a3773">Configuration.h</a>
 </li>
 <li>wcConfiguration_new()
-: <a class="el" href="_configuration_8h.html#ac900ffcef7a1ed1420d796f58e3b4a93">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#gac900ffcef7a1ed1420d796f58e3b4a93">Configuration.h</a>
 </li>
 <li>wcConfiguration_newFromArguments()
-: <a class="el" href="_configuration___argument_parser_8h.html#a1089674b80443aa22e47a6b961e508ca">Configuration_ArgumentParser.h</a>
+: <a class="el" href="group__wc_configuration___argument_parser.html#ga1089674b80443aa22e47a6b961e508ca">Configuration_ArgumentParser.h</a>
 </li>
 <li>wcConfiguration_print()
-: <a class="el" href="_configuration__stdio_8h.html#ac1f7958b495f9f13064870a3a753c7c3">Configuration_stdio.h</a>
+: <a class="el" href="group__wc_configuration__stdio.html#gac1f7958b495f9f13064870a3a753c7c3">Configuration_stdio.h</a>
 </li>
 <li>wcConfiguration_setDevicePath()
-: <a class="el" href="_configuration_8h.html#a427dd3f130b44646b5ec7baf26db81b9">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga427dd3f130b44646b5ec7baf26db81b9">Configuration.h</a>
 </li>
 <li>wcConfiguration_setWheel()
-: <a class="el" href="_configuration_8h.html#a06851973506d22d41654cae3540f78f2">Configuration.h</a>
+: <a class="el" href="group__wc_configuration.html#ga06851973506d22d41654cae3540f78f2">Configuration.h</a>
 </li>
 <li>wcConfiguration_snprint()
-: <a class="el" href="_configuration__stdio_8h.html#afc4553633ff8b7536f0d98607fd3379a">Configuration_stdio.h</a>
+: <a class="el" href="group__wc_configuration__stdio.html#gafc4553633ff8b7536f0d98607fd3379a">Configuration_stdio.h</a>
 </li>
 <li>wcConnection_close()
-: <a class="el" href="_connection_8h.html#a9eb51b70a70529b868c5851275fff784">Connection.h</a>
+: <a class="el" href="group__wc_connection.html#ga9eb51b70a70529b868c5851275fff784">Connection.h</a>
 </li>
 <li>wcConnection_open()
-: <a class="el" href="_connection_8h.html#a44afd63374b3d26c5af4931cc9a25ecb">Connection.h</a>
+: <a class="el" href="group__wc_connection.html#gae9d1832c8b40b4fe8d887185efe0d5f8">Connection.h</a>
 </li>
 <li>wcConnection_openFromConfiguration()
-: <a class="el" href="_connection___configuration_8h.html#a96cac575b2871659359808551ce31882">Connection_Configuration.h</a>
+: <a class="el" href="group__wc_connection___configuration.html#ga96cac575b2871659359808551ce31882">Connection_Configuration.h</a>
 </li>
 <li>wcConnection_read()
-: <a class="el" href="_connection_8h.html#aa8a7cf4a0060dd39225f014f84942627">Connection.h</a>
+: <a class="el" href="group__wc_connection.html#gaa8a7cf4a0060dd39225f014f84942627">Connection.h</a>
 </li>
 <li>wcConnection_write()
-: <a class="el" href="_connection_8h.html#a8a77e52d33fe9c81f3f587e2a03274fe">Connection.h</a>
+: <a class="el" href="group__wc_connection.html#ga8a77e52d33fe9c81f3f587e2a03274fe">Connection.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>wcPacket_isValid()
+: <a class="el" href="group__wc_packet.html#gaa488eadf8dd2fe84686c9947c59e7645">Packet.h</a>
 </li>
 <li>wcPacket_Message_create()
-: <a class="el" href="_packet_8h.html#a438ee91ffada645b310df713d14e0f96">Packet.h</a>
+: <a class="el" href="group__wc_packet.html#ga438ee91ffada645b310df713d14e0f96">Packet.h</a>
 </li>
 <li>wcPacket_RequestInfo_create()
-: <a class="el" href="_packet_8h.html#a071ea40b0eede0049551772e017fe4c8">Packet.h</a>
+: <a class="el" href="group__wc_packet.html#ga071ea40b0eede0049551772e017fe4c8">Packet.h</a>
 </li>
 <li>wcPacket_size()
-: <a class="el" href="_packet_8h.html#af99b1587b4919a17239bf92bcfb710db">Packet.h</a>
+: <a class="el" href="group__wc_packet.html#gaf99b1587b4919a17239bf92bcfb710db">Packet.h</a>
 </li>
 <li>wcPacket_Wheel_create()
-: <a class="el" href="_packet_8h.html#a034d52486d6447115071b15cff164abe">Packet.h</a>
+: <a class="el" href="group__wc_packet.html#ga034d52486d6447115071b15cff164abe">Packet.h</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>wcThread_getWheelCount()
 : <a class="el" href="_thread_8h.html#a9c2dc79b46ee134f3a01e106b31c056f">Thread.h</a>
+</li>
+<li>wcThread_isRunning()
+: <a class="el" href="_thread_8h.html#a4a33bc66b4a3ac462a68de9357fa34e3">Thread.h</a>
 </li>
 <li>wcThread_retrieveWheelMovement()
 : <a class="el" href="_thread_8h.html#a76e38b0f0e011a946f5a804cecd75221">Thread.h</a>
@@ -169,55 +208,86 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>wcThread_stop()
 : <a class="el" href="_thread_8h.html#a302c8009e1d5c51db0564f50b7a0d547">Thread.h</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>wcWheelMovement_accumulate()
+: <a class="el" href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d">WheelMovement.h</a>
+</li>
+<li>wcWheelMovement_accumulateFromPacket()
+: <a class="el" href="_wheel_movement___packet_8h.html#a0b87dfcfaba41358093fdf556cb9eeff">WheelMovement_Packet.h</a>
+</li>
+<li>wcWheelMovement_create()
+: <a class="el" href="group__wc_wheel_movement.html#gabb181a3a381c00b9f15f47c39ad0ad5d">WheelMovement.h</a>
+</li>
+<li>wcWheelMovement_createFromPacket()
+: <a class="el" href="_wheel_movement___packet_8h.html#a9c922b50b3a163b81873e5ed019281fc">WheelMovement_Packet.h</a>
+</li>
+<li>wcWheelMovement_getError()
+: <a class="el" href="group__wc_wheel_movement.html#ga56279bd86e8cb55f186455e0d7fb089d">WheelMovement.h</a>
+</li>
+<li>wcWheelMovement_getIncrements()
+: <a class="el" href="group__wc_wheel_movement.html#ga526ce26638df207a66e6f0004d37506b">WheelMovement.h</a>
+</li>
+<li>wcWheelMovement_getIndex()
+: <a class="el" href="group__wc_wheel_movement.html#gacc01ae189ef286667582135b603be68b">WheelMovement.h</a>
+</li>
 <li>wcWheelMovement_getTurns()
 : <a class="el" href="_wheel_movement___configuration_8h.html#ac19db0fd9e938f301b157d378673d0cb">WheelMovement_Configuration.h</a>
 </li>
+<li>wcWheelMovement_reset()
+: <a class="el" href="group__wc_wheel_movement.html#ga19ea2c4235f2ea622d63ba4488107ce3">WheelMovement.h</a>
+</li>
 <li>wcWheelPIDController_delete()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a9375942e02eb0306ad62913ccf163b33">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga9375942e02eb0306ad62913ccf163b33">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_getDerivativeGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a4993675a4010960b2a99eea953c2a4b0">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga4993675a4010960b2a99eea953c2a4b0">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_getIntegralGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#aa8d990b28f759413beb91e0a5dae80bc">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa8d990b28f759413beb91e0a5dae80bc">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_getProportionalGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#ab105e71cceec0db47205250c89bb1ae4">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gab105e71cceec0db47205250c89bb1ae4">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_getWindupGuard()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a5788682e6d415dbdb18171fdf1199866">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga5788682e6d415dbdb18171fdf1199866">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_new()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#aa5adfb6814210f52c9ab8e3758d9972c">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa5adfb6814210f52c9ab8e3758d9972c">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_reset()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#aa7d8cddcbf3afa2be8b8b493b2fb48bf">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa7d8cddcbf3afa2be8b8b493b2fb48bf">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_setDerivativeGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a50600fdb9d77ab0a5fbd0f4769ded7ce">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga50600fdb9d77ab0a5fbd0f4769ded7ce">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_setIntegralGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#aaec47c0bc60465191b2d2ee408cf131d">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gaaec47c0bc60465191b2d2ee408cf131d">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_setProportionalGain()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a5e1460b9f448f43d1d413dd47e764e7d">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga5e1460b9f448f43d1d413dd47e764e7d">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_setWindupGuard()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#a6db74b409f5ef5a1342a363845a0b781">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#ga6db74b409f5ef5a1342a363845a0b781">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_update()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#ad862ffa8e959655ec3e2de34b7e162e7">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gad862ffa8e959655ec3e2de34b7e162e7">WheelPIDController.h</a>
 </li>
 <li>wcWheelPIDController_updateAngular()
-: <a class="el" href="_wheel_p_i_d_controller_8h.html#ab36ec05c7f3581bd6031d1863d73d6bb">WheelPIDController.h</a>
+: <a class="el" href="group__wc_wheel_p_i_d_controller.html#gab36ec05c7f3581bd6031d1863d73d6bb">WheelPIDController.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,12 +79,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_vars.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,46 +110,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 &#160;<ul>
 <li>_data
-: <a class="el" href="structwc_packet.html#adcee6318cce41cf2688285878d8bfc92">wcPacket</a>
+: <a class="el" href="group__wc_packet.html#adcee6318cce41cf2688285878d8bfc92">wcPacket</a>
 </li>
 <li>channel
-: <a class="el" href="structwc_packet___wheel.html#a715f5cb061d11eb75981741eda4dafcd">wcPacket_Wheel</a>
+: <a class="el" href="group__wc_packet.html#a715f5cb061d11eb75981741eda4dafcd">wcPacket_Wheel</a>
 </li>
 <li>error
-: <a class="el" href="structwc_packet___wheel.html#adc64ccb7538429fe78e3fe0139267370">wcPacket_Wheel</a>
-, <a class="el" href="structwc_wheel_movement.html#a67643f6c0caf4bb9d80214d975f7382f">wcWheelMovement</a>
+: <a class="el" href="group__wc_packet.html#adc64ccb7538429fe78e3fe0139267370">wcPacket_Wheel</a>
+, <a class="el" href="group__wc_wheel_movement.html#a67643f6c0caf4bb9d80214d975f7382f">wcWheelMovement</a>
 </li>
 <li>header
-: <a class="el" href="structwc_packet.html#afc011512a82bac879aa473c372c5d101">wcPacket</a>
-, <a class="el" href="structwc_packet___wheel.html#afc011512a82bac879aa473c372c5d101">wcPacket_Wheel</a>
-, <a class="el" href="structwc_packet___message.html#afc011512a82bac879aa473c372c5d101">wcPacket_Message</a>
-, <a class="el" href="structwc_packet___request_info.html#afc011512a82bac879aa473c372c5d101">wcPacket_RequestInfo</a>
+: <a class="el" href="group__wc_packet.html#afc011512a82bac879aa473c372c5d101">wcPacket</a>
+, <a class="el" href="group__wc_packet.html#afc011512a82bac879aa473c372c5d101">wcPacket_Wheel</a>
+, <a class="el" href="group__wc_packet.html#afc011512a82bac879aa473c372c5d101">wcPacket_Message</a>
+, <a class="el" href="group__wc_packet.html#afc011512a82bac879aa473c372c5d101">wcPacket_RequestInfo</a>
 </li>
 <li>increments
-: <a class="el" href="structwc_wheel_movement.html#ab42320de501fef9610dbe0480ad6cc0e">wcWheelMovement</a>
+: <a class="el" href="group__wc_wheel_movement.html#ab42320de501fef9610dbe0480ad6cc0e">wcWheelMovement</a>
 </li>
 <li>index
-: <a class="el" href="structwc_wheel_movement.html#a589d64202487f78e3cc30dd2e04c5201">wcWheelMovement</a>
+: <a class="el" href="group__wc_wheel_movement.html#a589d64202487f78e3cc30dd2e04c5201">wcWheelMovement</a>
 </li>
 <li>length
-: <a class="el" href="structwc_packet___header.html#ab2b3adeb2a67e656ff030b56727fd0ac">wcPacket_Header</a>
+: <a class="el" href="group__wc_packet.html#ab2b3adeb2a67e656ff030b56727fd0ac">wcPacket_Header</a>
 </li>
 <li>text
-: <a class="el" href="structwc_packet___message.html#a13c1a3868ed040c4addf462462b201c7">wcPacket_Message</a>
+: <a class="el" href="group__wc_packet.html#a13c1a3868ed040c4addf462462b201c7">wcPacket_Message</a>
 </li>
 <li>type
-: <a class="el" href="structwc_packet___header.html#a1d127017fb298b889f4ba24752d08b8e">wcPacket_Header</a>
+: <a class="el" href="group__wc_packet.html#a1d127017fb298b889f4ba24752d08b8e">wcPacket_Header</a>
 </li>
 <li>value
-: <a class="el" href="structwc_packet___wheel.html#a7375fa3485ce43bbc621f90ce895d52a">wcPacket_Wheel</a>
+: <a class="el" href="group__wc_packet.html#a7375fa3485ce43bbc621f90ce895d52a">wcPacket_Wheel</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>

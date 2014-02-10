@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -37,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -63,12 +71,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_wheel_p_i_d_controller_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,11 +100,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#typedef-members">Typedefs</a> &#124;
@@ -105,350 +123,49 @@ Include dependency graph for WheelPIDController.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ae87b3331e0952cbc0a141aef3ec3263a"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
-_wcWheelPIDController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a></td></tr>
-<tr class="separator:ae87b3331e0952cbc0a141aef3ec3263a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae87b3331e0952cbc0a141aef3ec3263a"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+_wcWheelPIDController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a></td></tr>
+<tr class="separator:gae87b3331e0952cbc0a141aef3ec3263a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa5adfb6814210f52c9ab8e3758d9972c"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#aa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a> ()</td></tr>
-<tr class="separator:aa5adfb6814210f52c9ab8e3758d9972c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9375942e02eb0306ad62913ccf163b33"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:a9375942e02eb0306ad62913ccf163b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7d8cddcbf3afa2be8b8b493b2fb48bf"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#aa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:aa7d8cddcbf3afa2be8b8b493b2fb48bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e1460b9f448f43d1d413dd47e764e7d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
-<tr class="separator:a5e1460b9f448f43d1d413dd47e764e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec47c0bc60465191b2d2ee408cf131d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#aaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
-<tr class="separator:aaec47c0bc60465191b2d2ee408cf131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50600fdb9d77ab0a5fbd0f4769ded7ce"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
-<tr class="separator:a50600fdb9d77ab0a5fbd0f4769ded7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6db74b409f5ef5a1342a363845a0b781"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double guard)</td></tr>
-<tr class="separator:a6db74b409f5ef5a1342a363845a0b781"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab105e71cceec0db47205250c89bb1ae4"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#ab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a> (const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:ab105e71cceec0db47205250c89bb1ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d990b28f759413beb91e0a5dae80bc"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#aa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a> (const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:aa8d990b28f759413beb91e0a5dae80bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4993675a4010960b2a99eea953c2a4b0"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a> (const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:a4993675a4010960b2a99eea953c2a4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5788682e6d415dbdb18171fdf1199866"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#a5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a> (const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
-<tr class="separator:a5788682e6d415dbdb18171fdf1199866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad862ffa8e959655ec3e2de34b7e162e7"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#ad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double currentError, double delta)</td></tr>
-<tr class="separator:ad862ffa8e959655ec3e2de34b7e162e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36ec05c7f3581bd6031d1863d73d6bb"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_wheel_p_i_d_controller_8h.html#ab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a> (<a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta)</td></tr>
-<tr class="separator:ab36ec05c7f3581bd6031d1863d73d6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5adfb6814210f52c9ab8e3758d9972c"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa5adfb6814210f52c9ab8e3758d9972c">wcWheelPIDController_new</a> ()</td></tr>
+<tr class="separator:gaa5adfb6814210f52c9ab8e3758d9972c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9375942e02eb0306ad62913ccf163b33"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga9375942e02eb0306ad62913ccf163b33">wcWheelPIDController_delete</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:ga9375942e02eb0306ad62913ccf163b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7d8cddcbf3afa2be8b8b493b2fb48bf"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa7d8cddcbf3afa2be8b8b493b2fb48bf">wcWheelPIDController_reset</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:gaa7d8cddcbf3afa2be8b8b493b2fb48bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e1460b9f448f43d1d413dd47e764e7d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga5e1460b9f448f43d1d413dd47e764e7d">wcWheelPIDController_setProportionalGain</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
+<tr class="separator:ga5e1460b9f448f43d1d413dd47e764e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaec47c0bc60465191b2d2ee408cf131d"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gaaec47c0bc60465191b2d2ee408cf131d">wcWheelPIDController_setIntegralGain</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
+<tr class="separator:gaaec47c0bc60465191b2d2ee408cf131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50600fdb9d77ab0a5fbd0f4769ded7ce"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga50600fdb9d77ab0a5fbd0f4769ded7ce">wcWheelPIDController_setDerivativeGain</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double gain)</td></tr>
+<tr class="separator:ga50600fdb9d77ab0a5fbd0f4769ded7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6db74b409f5ef5a1342a363845a0b781"><td class="memItemLeft" align="right" valign="top">WC_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga6db74b409f5ef5a1342a363845a0b781">wcWheelPIDController_setWindupGuard</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double guard)</td></tr>
+<tr class="separator:ga6db74b409f5ef5a1342a363845a0b781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab105e71cceec0db47205250c89bb1ae4"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gab105e71cceec0db47205250c89bb1ae4">wcWheelPIDController_getProportionalGain</a> (const <a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:gab105e71cceec0db47205250c89bb1ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8d990b28f759413beb91e0a5dae80bc"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gaa8d990b28f759413beb91e0a5dae80bc">wcWheelPIDController_getIntegralGain</a> (const <a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:gaa8d990b28f759413beb91e0a5dae80bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4993675a4010960b2a99eea953c2a4b0"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga4993675a4010960b2a99eea953c2a4b0">wcWheelPIDController_getDerivativeGain</a> (const <a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:ga4993675a4010960b2a99eea953c2a4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5788682e6d415dbdb18171fdf1199866"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#ga5788682e6d415dbdb18171fdf1199866">wcWheelPIDController_getWindupGuard</a> (const <a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller)</td></tr>
+<tr class="separator:ga5788682e6d415dbdb18171fdf1199866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad862ffa8e959655ec3e2de34b7e162e7"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gad862ffa8e959655ec3e2de34b7e162e7">wcWheelPIDController_update</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, double currentError, double delta)</td></tr>
+<tr class="separator:gad862ffa8e959655ec3e2de34b7e162e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab36ec05c7f3581bd6031d1863d73d6bb"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_p_i_d_controller.html#gab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular</a> (<a class="el" href="group__wc_wheel_p_i_d_controller.html#gae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *controller, int targetAngleIncrements, int actualAngleIncrements, unsigned int incrementsPerTurn, double delta)</td></tr>
+<tr class="separator:gab36ec05c7f3581bd6031d1863d73d6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="ae87b3331e0952cbc0a141aef3ec3263a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct _wcWheelPIDController <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a9375942e02eb0306ad62913ccf163b33"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT bool wcWheelPIDController_delete </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4993675a4010960b2a99eea953c2a4b0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_getDerivativeGain </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa8d990b28f759413beb91e0a5dae80bc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_getIntegralGain </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab105e71cceec0db47205250c89bb1ae4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_getProportionalGain </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5788682e6d415dbdb18171fdf1199866"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_getWindupGuard </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa5adfb6814210f52c9ab8e3758d9972c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT <a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a>* wcWheelPIDController_new </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa7d8cddcbf3afa2be8b8b493b2fb48bf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcWheelPIDController_reset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a50600fdb9d77ab0a5fbd0f4769ded7ce"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcWheelPIDController_setDerivativeGain </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>gain</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aaec47c0bc60465191b2d2ee408cf131d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcWheelPIDController_setIntegralGain </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>gain</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5e1460b9f448f43d1d413dd47e764e7d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcWheelPIDController_setProportionalGain </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>gain</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6db74b409f5ef5a1342a363845a0b781"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT void wcWheelPIDController_setWindupGuard </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>guard</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad862ffa8e959655ec3e2de34b7e162e7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>currentError</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>delta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab36ec05c7f3581bd6031d1863d73d6bb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WC_EXPORT double wcWheelPIDController_updateAngular </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_wheel_p_i_d_controller_8h.html#ae87b3331e0952cbc0a141aef3ec3263a">wcWheelPIDController</a> *&#160;</td>
-          <td class="paramname"><em>controller</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>targetAngleIncrements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>actualAngleIncrements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>incrementsPerTurn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>delta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 3 2014 19:14:15 for wclib by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_wheel_p_i_d_controller_8h.html">WheelPIDController.h</a></li>
+    <li class="footer">Generated on Mon Feb 10 2014 13:53:45 for wclib by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
 </body>
 </html>
