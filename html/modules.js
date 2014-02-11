@@ -8,5 +8,7 @@ var modules =
     [ "Error conditions", "group__wc_error.html", "group__wc_error" ],
     [ "Packet protocol", "group__wc_packet.html", "group__wc_packet" ],
     [ "Wheel movement", "group__wc_wheel_movement.html", "group__wc_wheel_movement" ],
+    [ "Wheel movement configuration utilities", "group__wc_wheel_movement___configuration.html", "group__wc_wheel_movement___configuration" ],
+    [ "Wheel movement from packet", "group__wc_wheel_movement___packet.html", "group__wc_wheel_movement___packet" ],
     [ "Wheel PID controller", "group__wc_wheel_p_i_d_controller.html", "group__wc_wheel_p_i_d_controller" ]
 ];

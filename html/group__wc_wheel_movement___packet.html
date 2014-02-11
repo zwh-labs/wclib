@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>wclib: Configuration argument parser</title>
+<title>wclib: Wheel movement from packet</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('group__wc_configuration___argument_parser.html','');});
+$(document).ready(function(){initNavTree('group__wc_wheel_movement___packet.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -98,37 +98,41 @@ $(document).ready(function(){initNavTree('group__wc_configuration___argument_par
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Configuration argument parser</div>  </div>
+<div class="title">Wheel movement from packet</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Reads configuration from command line arguments.  
+<p>Handling wheel movements from packets.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1089674b80443aa22e47a6b961e508ca"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_configuration___argument_parser.html#ga1089674b80443aa22e47a6b961e508ca">wcConfiguration_newFromArguments</a> (int argc, const char **argv)</td></tr>
-<tr class="memdesc:ga1089674b80443aa22e47a6b961e508ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new configuration based on command line arguments.  <a href="#ga1089674b80443aa22e47a6b961e508ca">More...</a><br/></td></tr>
-<tr class="separator:ga1089674b80443aa22e47a6b961e508ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c922b50b3a163b81873e5ed019281fc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_movement___packet.html#ga9c922b50b3a163b81873e5ed019281fc">wcWheelMovement_createFromPacket</a> (<a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *wm, const <a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> *pw)</td></tr>
+<tr class="separator:ga9c922b50b3a163b81873e5ed019281fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b87dfcfaba41358093fdf556cb9eeff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_movement___packet.html#ga0b87dfcfaba41358093fdf556cb9eeff">wcWheelMovement_accumulateFromPacket</a> (<a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *wm, const <a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> *pw)</td></tr>
+<tr class="separator:ga0b87dfcfaba41358093fdf556cb9eeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Reads configuration from command line arguments. </p>
+<p>Handling wheel movements from packets. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga1089674b80443aa22e47a6b961e508ca"></a>
+<a class="anchor" id="ga0b87dfcfaba41358093fdf556cb9eeff"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WC_EXPORT <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a>* wcConfiguration_newFromArguments </td>
+          <td class="memname">static void wcWheelMovement_accumulateFromPacket </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
+          <td class="paramtype"><a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *&#160;</td>
+          <td class="paramname"><em>wm</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char **&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> *&#160;</td>
+          <td class="paramname"><em>pw</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -136,11 +140,64 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Creates a new configuration based on command line arguments. </p>
-<p>After usage, free the resources allocated by this call using <a class="el" href="group__wc_configuration.html#ga99e751fb6ba241a3f23c5cccbee4eb56" title="Deletes a configuration. ">wcConfiguration_delete( wcConfiguration * configuration )</a> on the returned configuration pointer. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a new configuration. </dd></dl>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__wc_wheel_movement___packet_ga0b87dfcfaba41358093fdf556cb9eeff_cgraph.png" border="0" usemap="#group__wc_wheel_movement___packet_ga0b87dfcfaba41358093fdf556cb9eeff_cgraph" alt=""/></div>
+<map name="group__wc_wheel_movement___packet_ga0b87dfcfaba41358093fdf556cb9eeff_cgraph" id="group__wc_wheel_movement___packet_ga0b87dfcfaba41358093fdf556cb9eeff_cgraph">
+<area shape="rect" id="node2" href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d" title="wcWheelMovement_accumulate" alt="" coords="278,12,501,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga9c922b50b3a163b81873e5ed019281fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void wcWheelMovement_createFromPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *&#160;</td>
+          <td class="paramname"><em>wm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__wc_packet.html#structwc_packet___wheel">wcPacket_Wheel</a> *&#160;</td>
+          <td class="paramname"><em>pw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__wc_wheel_movement___packet_ga9c922b50b3a163b81873e5ed019281fc_cgraph.png" border="0" usemap="#group__wc_wheel_movement___packet_ga9c922b50b3a163b81873e5ed019281fc_cgraph" alt=""/></div>
+<map name="group__wc_wheel_movement___packet_ga9c922b50b3a163b81873e5ed019281fc_cgraph" id="group__wc_wheel_movement___packet_ga9c922b50b3a163b81873e5ed019281fc_cgraph">
+<area shape="rect" id="node2" href="group__wc_wheel_movement.html#gabb181a3a381c00b9f15f47c39ad0ad5d" title="wcWheelMovement_create" alt="" coords="295,5,489,32"/><area shape="rect" id="node3" href="group__wc_wheel_movement.html#ga4c77c5923933632b6aea0a18ec7b545d" title="wcWheelMovement_accumulate" alt="" coords="281,56,503,83"/></map>
+</div>
+</p>
 
 </div>
 </div>

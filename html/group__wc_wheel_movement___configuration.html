@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>wclib: Modules</title>
+<title>wclib: Wheel movement configuration utilities</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -77,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('modules.html','');});
+$(document).ready(function(){initNavTree('group__wc_wheel_movement___configuration.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -95,25 +95,61 @@ $(document).ready(function(){initNavTree('modules.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Modules</div>  </div>
+<div class="title">Wheel movement configuration utilities</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all modules:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_configuration.html" target="_self">Configuration</a></td><td class="desc">Controller configuration </td></tr>
-<tr id="row_1_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_configuration___argument_parser.html" target="_self">Configuration argument parser</a></td><td class="desc">Reads configuration from command line arguments </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_configuration__stdio.html" target="_self">Configuration utilities for textual representation</a></td><td class="desc">Configuration formatting and output functions </td></tr>
-<tr id="row_3_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_connection.html" target="_self">Connection</a></td><td class="desc">Handles the connection to a controller </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_connection___configuration.html" target="_self">Connection from configuration</a></td><td class="desc">Opens a connection as defined in a configuration </td></tr>
-<tr id="row_5_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_error.html" target="_self">Error conditions</a></td><td class="desc">Error conditions used by the controller </td></tr>
-<tr id="row_6_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_packet.html" target="_self">Packet protocol</a></td><td class="desc">The protocol used to communicate with the controller </td></tr>
-<tr id="row_7_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_wheel_movement.html" target="_self">Wheel movement</a></td><td class="desc">A structure representing wheel movements </td></tr>
-<tr id="row_8_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_wheel_movement___configuration.html" target="_self">Wheel movement configuration utilities</a></td><td class="desc">Configuration specific wheel movement utility functions </td></tr>
-<tr id="row_9_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><a class="el" href="group__wc_wheel_movement___packet.html" target="_self">Wheel movement from packet</a></td><td class="desc">Handling wheel movements from packets </td></tr>
-<tr id="row_10_" class="even"><td class="entry"><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><a class="el" href="group__wc_wheel_p_i_d_controller.html" target="_self">Wheel PID controller</a></td><td class="desc">Implements a simple PID controller </td></tr>
+
+<p>Configuration specific wheel movement utility functions.  
+<a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac19db0fd9e938f301b157d378673d0cb"><td class="memItemLeft" align="right" valign="top">WC_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_wheel_movement___configuration.html#gac19db0fd9e938f301b157d378673d0cb">wcWheelMovement_getTurns</a> (const <a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *wm, const <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *c)</td></tr>
+<tr class="memdesc:gac19db0fd9e938f301b157d378673d0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return wheel movement as fraction of a full turn.  <a href="#gac19db0fd9e938f301b157d378673d0cb">More...</a><br/></td></tr>
+<tr class="separator:gac19db0fd9e938f301b157d378673d0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- directory -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Configuration specific wheel movement utility functions. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="gac19db0fd9e938f301b157d378673d0cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT double wcWheelMovement_getTurns </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> *&#160;</td>
+          <td class="paramname"><em>wm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__wc_configuration.html#gaf7032ad6b5b7efb04368a6d7455709d4">wcConfiguration</a> *&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return wheel movement as fraction of a full turn. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wm</td><td>Wheel movement pointer. </td></tr>
+    <tr><td class="paramname">c</td><td>Pointer to configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new connection. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
