@@ -6,6 +6,11 @@
 #include <wc/WheelMovement.h>
 #include <wc/Packet.h>
 
+/**
+ * \defgroup wcWheelMovement_Packet Wheel movement from packet
+ * \brief Handling wheel movements from packets.
+ * @{
+ */
 
 static inline void wcWheelMovement_createFromPacket( wcWheelMovement * wm, const wcPacket_Wheel * pw )
 {
@@ -19,5 +24,8 @@ static inline void wcWheelMovement_accumulateFromPacket( wcWheelMovement * wm, c
 	wcWheelMovement_accumulate( wm, pw->value, pw->error );
 }
 
+/**
+ * @}
+ */
 
 #endif
