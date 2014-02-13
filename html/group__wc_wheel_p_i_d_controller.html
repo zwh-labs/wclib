@@ -143,8 +143,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements a simple PID controller. </p>
-<p>This module can be used if the users application does not provide any mean to set rotations directly.<br/>
-For example in a physics simulation only a torque may be applied to a simulated wheel.<br/>
+<p>This module can be used if the users application does not provide any mean to set rotations directly. For example in a physics simulation only a torque may be applied to a simulated wheel.<br/>
 To move the wheel according to the wheel signals of the incremental rotary encoder connected to the controller, the application must track both absolute wheel angles - The accumulated increments of the real wheel and the simulated wheel's angle expressed as increments.<br/>
 Both values can then be used as input for the PID controller (in this case <a class="el" href="group__wc_wheel_p_i_d_controller.html#gab36ec05c7f3581bd6031d1863d73d6bb">wcWheelPIDController_updateAngular( wcWheelPIDController *, int, int, unsigned int, double )</a> ). The output (the return value of the update function) can be applied as a torque to the simulated wheel. </p>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -457,7 +456,7 @@ Both values can then be used as input for the PID controller (in this case <a cl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Feb 11 2014 15:28:58 for wclib by
+    <li class="footer">Generated on Thu Feb 13 2014 13:38:07 for wclib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

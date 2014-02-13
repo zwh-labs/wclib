@@ -7,6 +7,7 @@ var modules =
     [ "Connection from configuration", "group__wc_connection___configuration.html", "group__wc_connection___configuration" ],
     [ "Error conditions", "group__wc_error.html", "group__wc_error" ],
     [ "Packet protocol", "group__wc_packet.html", "group__wc_packet" ],
+    [ "Thread", "group__wc_thread.html", "group__wc_thread" ],
     [ "Wheel movement", "group__wc_wheel_movement.html", "group__wc_wheel_movement" ],
     [ "Wheel movement configuration utilities", "group__wc_wheel_movement___configuration.html", "group__wc_wheel_movement___configuration" ],
     [ "Wheel movement from packet", "group__wc_wheel_movement___packet.html", "group__wc_wheel_movement___packet" ],

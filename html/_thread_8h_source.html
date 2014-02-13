@@ -115,37 +115,36 @@ $(document).ready(function(){initNavTree('_thread_8h_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">   12</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcThread <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;WC_EXPORT <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a> * <a class="code" href="_thread_8h.html#aff2b0613aa893d5552c6f69032e30d0e">wcThread_start</a>( <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * connection );</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="_thread_8h.html#a302c8009e1d5c51db0564f50b7a0d547">wcThread_stop</a>( <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_wcThread <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="_thread_8h.html#a4a33bc66b4a3ac462a68de9357fa34e3">wcThread_isRunning</a>( <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;WC_EXPORT <a class="code" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> <a class="code" href="_thread_8h.html#a76e38b0f0e011a946f5a804cecd75221">wcThread_retrieveWheelMovement</a>( <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a> * thread, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;WC_EXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_thread_8h.html#a9c2dc79b46ee134f3a01e106b31c056f">wcThread_getWheelCount</a>( <a class="code" href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;WC_EXPORT <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> * <a class="code" href="group__wc_thread.html#gaff2b0613aa893d5552c6f69032e30d0e">wcThread_start</a>( <a class="code" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> * connection );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="group__wc_thread.html#ga302c8009e1d5c51db0564f50b7a0d547">wcThread_stop</a>( <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;WC_EXPORT <span class="keywordtype">bool</span> <a class="code" href="group__wc_thread.html#ga4a33bc66b4a3ac462a68de9357fa34e3">wcThread_isRunning</a>( <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;WC_EXPORT <a class="code" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> <a class="code" href="group__wc_thread.html#ga76e38b0f0e011a946f5a804cecd75221">wcThread_retrieveWheelMovement</a>( <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> * thread, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;WC_EXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="group__wc_thread.html#ga9c2dc79b46ee134f3a01e106b31c056f">wcThread_getWheelCount</a>( <a class="code" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> * thread );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="group__wc_thread_html_gaff2b0613aa893d5552c6f69032e30d0e"><div class="ttname"><a href="group__wc_thread.html#gaff2b0613aa893d5552c6f69032e30d0e">wcThread_start</a></div><div class="ttdeci">WC_EXPORT wcThread * wcThread_start(wcConnection *connection)</div><div class="ttdoc">Starts a new thread listening on a connection. </div></div>
 <div class="ttc" id="group__wc_wheel_movement_html_structwc_wheel_movement"><div class="ttname"><a href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a></div><div class="ttdoc">A wheel movement. </div><div class="ttdef"><b>Definition:</b> WheelMovement.h:15</div></div>
-<div class="ttc" id="_thread_8h_html_a302c8009e1d5c51db0564f50b7a0d547"><div class="ttname"><a href="_thread_8h.html#a302c8009e1d5c51db0564f50b7a0d547">wcThread_stop</a></div><div class="ttdeci">WC_EXPORT bool wcThread_stop(wcThread *thread)</div></div>
-<div class="ttc" id="_thread_8h_html_a76e38b0f0e011a946f5a804cecd75221"><div class="ttname"><a href="_thread_8h.html#a76e38b0f0e011a946f5a804cecd75221">wcThread_retrieveWheelMovement</a></div><div class="ttdeci">WC_EXPORT wcWheelMovement wcThread_retrieveWheelMovement(wcThread *thread, unsigned int index)</div></div>
+<div class="ttc" id="group__wc_thread_html_ga302c8009e1d5c51db0564f50b7a0d547"><div class="ttname"><a href="group__wc_thread.html#ga302c8009e1d5c51db0564f50b7a0d547">wcThread_stop</a></div><div class="ttdeci">WC_EXPORT bool wcThread_stop(wcThread *thread)</div><div class="ttdoc">Stops a thread. </div></div>
+<div class="ttc" id="group__wc_thread_html_ga76e38b0f0e011a946f5a804cecd75221"><div class="ttname"><a href="group__wc_thread.html#ga76e38b0f0e011a946f5a804cecd75221">wcThread_retrieveWheelMovement</a></div><div class="ttdeci">WC_EXPORT wcWheelMovement wcThread_retrieveWheelMovement(wcThread *thread, unsigned int index)</div><div class="ttdoc">Fetches the accumulated wheel movements. </div></div>
+<div class="ttc" id="group__wc_thread_html_ga4a33bc66b4a3ac462a68de9357fa34e3"><div class="ttname"><a href="group__wc_thread.html#ga4a33bc66b4a3ac462a68de9357fa34e3">wcThread_isRunning</a></div><div class="ttdeci">WC_EXPORT bool wcThread_isRunning(wcThread *thread)</div><div class="ttdoc">Returns if the thread is still running. </div></div>
 <div class="ttc" id="group__wc_connection_html_ga1a83536f9673e59f289bfe1ed3fc7a8e"><div class="ttname"><a href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a></div><div class="ttdeci">struct _wcConnection wcConnection</div><div class="ttdoc">The connection structure. </div><div class="ttdef"><b>Definition:</b> Connection.h:26</div></div>
-<div class="ttc" id="_thread_8h_html_a9c2dc79b46ee134f3a01e106b31c056f"><div class="ttname"><a href="_thread_8h.html#a9c2dc79b46ee134f3a01e106b31c056f">wcThread_getWheelCount</a></div><div class="ttdeci">WC_EXPORT unsigned int wcThread_getWheelCount(wcThread *thread)</div></div>
 <div class="ttc" id="_connection_8h_html"><div class="ttname"><a href="_connection_8h.html">Connection.h</a></div></div>
-<div class="ttc" id="_thread_8h_html_aba795669680e311034b9b457a3919ca6"><div class="ttname"><a href="_thread_8h.html#aba795669680e311034b9b457a3919ca6">wcThread</a></div><div class="ttdeci">struct _wcThread wcThread</div><div class="ttdef"><b>Definition:</b> Thread.h:12</div></div>
-<div class="ttc" id="_thread_8h_html_a4a33bc66b4a3ac462a68de9357fa34e3"><div class="ttname"><a href="_thread_8h.html#a4a33bc66b4a3ac462a68de9357fa34e3">wcThread_isRunning</a></div><div class="ttdeci">WC_EXPORT bool wcThread_isRunning(wcThread *thread)</div></div>
-<div class="ttc" id="_thread_8h_html_aff2b0613aa893d5552c6f69032e30d0e"><div class="ttname"><a href="_thread_8h.html#aff2b0613aa893d5552c6f69032e30d0e">wcThread_start</a></div><div class="ttdeci">WC_EXPORT wcThread * wcThread_start(wcConnection *connection)</div></div>
+<div class="ttc" id="group__wc_thread_html_gaba795669680e311034b9b457a3919ca6"><div class="ttname"><a href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a></div><div class="ttdeci">struct _wcThread wcThread</div><div class="ttdoc">The thread structure. </div><div class="ttdef"><b>Definition:</b> Thread.h:20</div></div>
+<div class="ttc" id="group__wc_thread_html_ga9c2dc79b46ee134f3a01e106b31c056f"><div class="ttname"><a href="group__wc_thread.html#ga9c2dc79b46ee134f3a01e106b31c056f">wcThread_getWheelCount</a></div><div class="ttdeci">WC_EXPORT unsigned int wcThread_getWheelCount(wcThread *thread)</div><div class="ttdoc">Returns the number of tracked wheels. </div></div>
 <div class="ttc" id="_wheel_movement_8h_html"><div class="ttname"><a href="_wheel_movement_8h.html">WheelMovement.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -153,7 +152,7 @@ $(document).ready(function(){initNavTree('_thread_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_thread_8h.html">Thread.h</a></li>
-    <li class="footer">Generated on Tue Feb 11 2014 15:28:58 for wclib by
+    <li class="footer">Generated on Thu Feb 13 2014 13:38:07 for wclib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

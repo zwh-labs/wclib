@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>wclib: wc/Thread.h File Reference</title>
+<title>wclib: Thread</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,7 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -65,12 +65,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
-    </ul>
-  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -83,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('_thread_8h.html','');});
+$(document).ready(function(){initNavTree('group__wc_thread.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -105,53 +99,197 @@ $(document).ready(function(){initNavTree('_thread_8h.html','');});
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Thread.h File Reference</div>  </div>
+<div class="title">Thread</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;wc_export.h&quot;</code><br/>
-<code>#include &lt;<a class="el" href="_connection_8h_source.html">wc/Connection.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="_wheel_movement_8h_source.html">wc/WheelMovement.h</a>&gt;</code><br/>
-<code>#include &lt;stdbool.h&gt;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Thread.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="_thread_8h__incl.png" border="0" usemap="#wc_2_thread_8h" alt=""/></div>
-<map name="wc_2_thread_8h" id="wc_2_thread_8h">
-<area shape="rect" id="node3" href="_connection_8h.html" title="wc/Connection.h" alt="" coords="115,80,241,107"/><area shape="rect" id="node7" href="_wheel_movement_8h.html" title="wc/WheelMovement.h" alt="" coords="336,80,495,107"/><area shape="rect" id="node4" href="_packet_8h.html" title="wc/Packet.h" alt="" coords="113,155,209,181"/><area shape="rect" id="node8" href="_error_8h.html" title="wc/Error.h" alt="" coords="373,155,459,181"/></map>
-</div>
-</div>
-<p><a href="_thread_8h_source.html">Go to the source code of this file.</a></p>
+
+<p>Connection thread.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:gaba795669680e311034b9b457a3919ca6"><td class="memItemLeft" align="right" valign="top">typedef struct _wcThread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a></td></tr>
-<tr class="memdesc:gaba795669680e311034b9b457a3919ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thread structure.  <a href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">More...</a><br/></td></tr>
+<tr class="memdesc:gaba795669680e311034b9b457a3919ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thread structure.  <a href="#gaba795669680e311034b9b457a3919ca6">More...</a><br/></td></tr>
 <tr class="separator:gaba795669680e311034b9b457a3919ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaff2b0613aa893d5552c6f69032e30d0e"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#gaff2b0613aa893d5552c6f69032e30d0e">wcThread_start</a> (<a class="el" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> *connection)</td></tr>
-<tr class="memdesc:gaff2b0613aa893d5552c6f69032e30d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a new thread listening on a connection.  <a href="group__wc_thread.html#gaff2b0613aa893d5552c6f69032e30d0e">More...</a><br/></td></tr>
+<tr class="memdesc:gaff2b0613aa893d5552c6f69032e30d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a new thread listening on a connection.  <a href="#gaff2b0613aa893d5552c6f69032e30d0e">More...</a><br/></td></tr>
 <tr class="separator:gaff2b0613aa893d5552c6f69032e30d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga302c8009e1d5c51db0564f50b7a0d547"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#ga302c8009e1d5c51db0564f50b7a0d547">wcThread_stop</a> (<a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *thread)</td></tr>
-<tr class="memdesc:ga302c8009e1d5c51db0564f50b7a0d547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a thread.  <a href="group__wc_thread.html#ga302c8009e1d5c51db0564f50b7a0d547">More...</a><br/></td></tr>
+<tr class="memdesc:ga302c8009e1d5c51db0564f50b7a0d547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a thread.  <a href="#ga302c8009e1d5c51db0564f50b7a0d547">More...</a><br/></td></tr>
 <tr class="separator:ga302c8009e1d5c51db0564f50b7a0d547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4a33bc66b4a3ac462a68de9357fa34e3"><td class="memItemLeft" align="right" valign="top">WC_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#ga4a33bc66b4a3ac462a68de9357fa34e3">wcThread_isRunning</a> (<a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *thread)</td></tr>
-<tr class="memdesc:ga4a33bc66b4a3ac462a68de9357fa34e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the thread is still running.  <a href="group__wc_thread.html#ga4a33bc66b4a3ac462a68de9357fa34e3">More...</a><br/></td></tr>
+<tr class="memdesc:ga4a33bc66b4a3ac462a68de9357fa34e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the thread is still running.  <a href="#ga4a33bc66b4a3ac462a68de9357fa34e3">More...</a><br/></td></tr>
 <tr class="separator:ga4a33bc66b4a3ac462a68de9357fa34e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga76e38b0f0e011a946f5a804cecd75221"><td class="memItemLeft" align="right" valign="top">WC_EXPORT <a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#ga76e38b0f0e011a946f5a804cecd75221">wcThread_retrieveWheelMovement</a> (<a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *thread, unsigned int index)</td></tr>
-<tr class="memdesc:ga76e38b0f0e011a946f5a804cecd75221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the accumulated wheel movements.  <a href="group__wc_thread.html#ga76e38b0f0e011a946f5a804cecd75221">More...</a><br/></td></tr>
+<tr class="memdesc:ga76e38b0f0e011a946f5a804cecd75221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the accumulated wheel movements.  <a href="#ga76e38b0f0e011a946f5a804cecd75221">More...</a><br/></td></tr>
 <tr class="separator:ga76e38b0f0e011a946f5a804cecd75221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9c2dc79b46ee134f3a01e106b31c056f"><td class="memItemLeft" align="right" valign="top">WC_EXPORT unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__wc_thread.html#ga9c2dc79b46ee134f3a01e106b31c056f">wcThread_getWheelCount</a> (<a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *thread)</td></tr>
-<tr class="memdesc:ga9c2dc79b46ee134f3a01e106b31c056f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of tracked wheels.  <a href="group__wc_thread.html#ga9c2dc79b46ee134f3a01e106b31c056f">More...</a><br/></td></tr>
+<tr class="memdesc:ga9c2dc79b46ee134f3a01e106b31c056f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of tracked wheels.  <a href="#ga9c2dc79b46ee134f3a01e106b31c056f">More...</a><br/></td></tr>
 <tr class="separator:ga9c2dc79b46ee134f3a01e106b31c056f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Connection thread. </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="gaba795669680e311034b9b457a3919ca6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct _wcThread <a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The thread structure. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga9c2dc79b46ee134f3a01e106b31c056f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT unsigned int wcThread_getWheelCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of tracked wheels. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>The thread. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of tracked wheels. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4a33bc66b4a3ac462a68de9357fa34e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT bool wcThread_isRunning </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns if the thread is still running. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>The thread. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the thread is still running. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga76e38b0f0e011a946f5a804cecd75221"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT <a class="el" href="group__wc_wheel_movement.html#structwc_wheel_movement">wcWheelMovement</a> wcThread_retrieveWheelMovement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *&#160;</td>
+          <td class="paramname"><em>thread</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fetches the accumulated wheel movements. </p>
+<p>Returns the accumulated wheel movements for the given wheel index since the last call using the same index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>The thread. </td></tr>
+    <tr><td class="paramname">index</td><td>The wheel's index to retrieve. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The accumulated wheel movements. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaff2b0613aa893d5552c6f69032e30d0e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT <a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a>* wcThread_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_connection.html#ga1a83536f9673e59f289bfe1ed3fc7a8e">wcConnection</a> *&#160;</td>
+          <td class="paramname"><em>connection</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts a new thread listening on a connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">connection</td><td>The connection to listen on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the created thread or NULL on error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga302c8009e1d5c51db0564f50b7a0d547"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WC_EXPORT bool wcThread_stop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__wc_thread.html#gaba795669680e311034b9b457a3919ca6">wcThread</a> *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stops a thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>The thread to stop. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78236e14c559c697ea56734b1108ba3f.html">wc</a></li><li class="navelem"><a class="el" href="_thread_8h.html">Thread.h</a></li>
     <li class="footer">Generated on Thu Feb 13 2014 13:38:07 for wclib by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
