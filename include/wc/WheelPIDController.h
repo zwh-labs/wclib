@@ -10,7 +10,7 @@
  * \defgroup wcWheelPIDController Wheel PID controller
  * \brief Implements a simple PID controller.
  *
- * This module can be used if the users application does not provide any mean to set rotations directly.\n
+ * This module can be used if the users application does not provide any mean to set rotations directly.
  * For example in a physics simulation only a torque may be applied to a simulated wheel.\n
  * To move the wheel according to the wheel signals of the incremental rotary encoder connected to the controller,
  * the application must track both absolute wheel angles - The accumulated increments of the real wheel and the simulated wheel's angle expressed as increments.\n
