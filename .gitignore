@@ -7,7 +7,6 @@
 *.lss
 *.map
 *.sym
-*.cmake
 *.dll
 *.exe
 *.a

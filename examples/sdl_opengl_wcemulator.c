@@ -9,6 +9,8 @@
  *     # ./wcExampleSDL2OpenGLPID --devicePath /dev/pts/4
  */
 
+#define SDL_MAIN_HANDLED
+
 #include <wc/Configuration.h>
 #include <wc/Configuration_stdio.h>
 #include <wc/Configuration_ArgumentParser.h>
