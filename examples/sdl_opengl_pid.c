@@ -19,24 +19,14 @@
 #include <stdbool.h>
 
 
-#define WHEELNUM 2
-
-
 static SDL_Window * window = NULL;
 static SDL_GLContext glContext = 0;
 
-static wcConfiguration * configuration = NULL;
-static wcConnection * connection = NULL;
-static wcThread * thread = NULL;
-
-static wcWheelPIDController * wheelControllers[WHEELNUM] = { 0 };
-static int targetWheelAngleIncrements[WHEELNUM] = { 0 };
-static double wheelRotations[WHEELNUM] = { 0.0f };
-static double wheelVelocities[WHEELNUM] = { 0.0f };
-
-
-bool init_sdl()
+static bool init_sdl( int argc, const char ** argv )
 {
+	(void)argc;
+	(void)argv;
+
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
 		fprintf( stderr, "Failed to initialize SDL: %s\n", SDL_GetError() );
@@ -76,7 +66,11 @@ bool init_sdl()
 }
 
 
-bool init_wc( int argc, const char ** argv )
+static wcConfiguration * configuration = NULL;
+static wcConnection * connection = NULL;
+static wcThread * thread = NULL;
+
+static bool init_wc( int argc, const char ** argv )
 {
 	configuration = wcConfiguration_newFromArguments( argc, argv );
 	if( !configuration )
@@ -100,31 +94,45 @@ bool init_wc( int argc, const char ** argv )
 		return false;
 	}
 
-	for( int i=0; i<WHEELNUM; i++ )
-	{
-		wheelControllers[i] = wcWheelPIDController_new();
-		if( !wheelControllers[i] )
-		{
-			fprintf( stderr, "Failed to instantiate PID controller\n" );
-			return false;
-		}
-	}
-
 	return true;
 }
 
 
-bool init( int argc, const char ** argv )
+typedef struct
+{
+	wcWheelPIDController * controller;
+	int targetAngleIncrements;
+	double rotationAngle;
+	double velocity;
+} Wheel;
+static unsigned int wheelCount = 0;
+static Wheel * wheels = NULL;
+
+static bool init( int argc, const char ** argv )
 {
 	if( !init_wc( argc, argv ) )
 		return false;
 
-	if( !init_sdl() )
+	if( !init_sdl( argc, argv ) )
 		return false;
+
+	wheelCount = wcConfiguration_getWheelCount( configuration );
+	wheels = malloc( sizeof(Wheel) * wheelCount );
+	for( unsigned int i=0; i<wheelCount; i++ )
+	{
+		wheels[i].controller = wcWheelPIDController_new();
+		if( !wheels[i].controller )
+		{
+			fprintf( stderr, "Failed to instantiate PID controller\n" );
+			return false;
+		}
+		wheels[i].rotationAngle = 0.0;
+		wheels[i].targetAngleIncrements = 0;
+		wheels[i].velocity = 0.0;
+	}
 
 	return true;
 }
-
 
 
 // http://stackoverflow.com/questions/12089514/real-modulo-operator-in-c-c
@@ -141,7 +149,7 @@ static inline double fraction( double d )
 }
 
 
-void update()
+static void update()
 {
 	static unsigned int lastTime = 0;
 	static unsigned int currentTime = 0;
@@ -152,23 +160,23 @@ void update()
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-	for( int i=0; i<WHEELNUM; i++ )
+	for( unsigned int i=0; i<wheelCount; i++ )
 	{
 		int incrementsPerTurn = wcConfiguration_getWheelIncrementsPerTurn( configuration, i );
 
 		wcWheelMovement wm = wcThread_retrieveWheelMovement( thread, i );
-		targetWheelAngleIncrements[i] += wcWheelMovement_getIncrements( &wm );
-		targetWheelAngleIncrements[i] = modulo( targetWheelAngleIncrements[i], incrementsPerTurn );
+		wheels[i].targetAngleIncrements += wcWheelMovement_getIncrements( &wm );
+		wheels[i].targetAngleIncrements = modulo( wheels[i].targetAngleIncrements, incrementsPerTurn );
 
-		int actualAngleIncrements = wheelRotations[i] * (double)incrementsPerTurn;
-		double controlValue = wcWheelPIDController_updateAngular( wheelControllers[i], targetWheelAngleIncrements[i], actualAngleIncrements, incrementsPerTurn, delta );
-		wheelVelocities[i] += controlValue;
-		wheelRotations[i] += wheelVelocities[i];
-		wheelRotations[i] = fraction(wheelRotations[i]);
+		int actualAngleIncrements = wheels[i].rotationAngle * (double)incrementsPerTurn;
+		double controlValue = wcWheelPIDController_updateAngular( wheels[i].controller, wheels[i].targetAngleIncrements, actualAngleIncrements, incrementsPerTurn, delta );
+		wheels[i].velocity += controlValue;
+		wheels[i].rotationAngle += wheels[i].velocity;
+		wheels[i].rotationAngle = fraction(wheels[i].rotationAngle);
 		glPushMatrix();
 			unsigned char color = i+1;
 			glColor3f( color&2, color&1, color&4 );
-			glRotatef( wheelRotations[i] * 360.0f, 0,0,1 );
+			glRotatef( wheels[i].rotationAngle * 360.0f, 0,0,1 );
 			glBegin( GL_QUADS );
 				glVertex3f( -0.5f, -0.5f, i*0.5f );
 				glVertex3f( 0.5f, -0.5f, i*0.5f );
@@ -180,7 +188,7 @@ void update()
 }
 
 
-void quit_sdl()
+static void quit_sdl()
 {
 	SDL_GL_DeleteContext( glContext );
 	glContext = 0;
@@ -190,7 +198,7 @@ void quit_sdl()
 }
 
 
-void quit_wc()
+static void quit_wc()
 {
 	wcThread_stop( thread );
 	thread = NULL;
@@ -198,15 +206,16 @@ void quit_wc()
 	connection = NULL;
 	wcConfiguration_delete( configuration );
 	configuration = NULL;
-	for( int i=0; i<WHEELNUM; i++ )
-		wcWheelPIDController_delete( wheelControllers[i] );
+	for( unsigned int i=0; i<wheelCount; i++ )
+		wcWheelPIDController_delete( wheels[i].controller );
 }
 
 
-void quit()
+static void quit()
 {
 	quit_sdl();
 	quit_wc();
+	free( wheels );
 }
 
 

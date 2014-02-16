@@ -29,9 +29,9 @@ wcWheelPIDController * wcWheelPIDController_new()
 	controller->integratedError = 0.0;
 
 	controller->windupGuard = FLT_MAX;
-	controller->proportionalGain = 0.0001;
-	controller->integralGain =     0.00001;
-	controller->derivativeGain =   0.000001;
+	controller->proportionalGain = 0.000075;
+	controller->integralGain =     0.0;
+	controller->derivativeGain =   0.000005;
 
 	return controller;
 }

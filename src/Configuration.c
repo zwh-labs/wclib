@@ -61,12 +61,13 @@ bool wcConfiguration_setWheel( wcConfiguration * configuration, unsigned int whe
 {
 	if( wheelIndex >= configuration->wheelCount )
 	{
-		wcConfigurationWheel * newWheelConfigurations = (wcConfigurationWheel*) realloc( configuration->wheelConfigurations, sizeof(wcConfigurationWheel) * (wheelIndex + 1) );
+		unsigned int newWheelCount = wheelIndex + 1;
+		wcConfigurationWheel * newWheelConfigurations = (wcConfigurationWheel*) realloc( configuration->wheelConfigurations, sizeof(wcConfigurationWheel) * newWheelCount );
 		if( !newWheelConfigurations )
 			return false;
-		memset( newWheelConfigurations + configuration->wheelCount, 0, sizeof(wcConfigurationWheel) * (wheelIndex - configuration->wheelCount) );
+		memset( &newWheelConfigurations[configuration->wheelCount], 0, sizeof(wcConfigurationWheel) * ( newWheelCount - configuration->wheelCount) );
 		configuration->wheelConfigurations = newWheelConfigurations;
-		configuration->wheelCount = wheelIndex + 1;
+		configuration->wheelCount = newWheelCount;
 	}
 	configuration->wheelConfigurations[wheelIndex].incrementsPerTurn = incrementsPerTurn;
 	return true;
