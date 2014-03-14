@@ -61,14 +61,23 @@ bool wcConfiguration_setWheel( wcConfiguration * configuration, unsigned int whe
 {
 	if( wheelIndex >= configuration->wheelCount )
 	{
+		// resize wheel configuration
 		unsigned int newWheelCount = wheelIndex + 1;
 		wcConfigurationWheel * newWheelConfigurations = (wcConfigurationWheel*) realloc( configuration->wheelConfigurations, sizeof(wcConfigurationWheel) * newWheelCount );
 		if( !newWheelConfigurations )
 			return false;
-		memset( &newWheelConfigurations[configuration->wheelCount], 0, sizeof(wcConfigurationWheel) * ( newWheelCount - configuration->wheelCount) );
+		// zero all fields for new wheel configurations
+		memset( &newWheelConfigurations[configuration->wheelCount], 0, sizeof(wcConfigurationWheel) * ( newWheelCount - configuration->wheelCount ) );
+		// set some default values for undefined wheels - happens when indexing a wheel with a gap to the last defined wheel
+		for( unsigned int i = configuration->wheelCount; i < wheelIndex; i++ )
+		{
+			newWheelConfigurations[i].incrementsPerTurn = DEFAULT_WHEELINCREMENTSPERTURN;
+		}
+		// update configuration
 		configuration->wheelConfigurations = newWheelConfigurations;
 		configuration->wheelCount = newWheelCount;
 	}
+	// set the wheel configuration for indexed wheel
 	configuration->wheelConfigurations[wheelIndex].incrementsPerTurn = incrementsPerTurn;
 	return true;
 }
